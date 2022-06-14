@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  docs_dev:
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    volumes:
+      - ./doc-site/lib:/usr/app/doc-site/lib
+      - ./doc-site/pages:/usr/app/doc-site/pages
+      - ./doc-site/public:/usr/app/doc-site/public
+      - ./doc-site/styles:/usr/app/doc-site/styles
+      - ./doc-site/next.config.js:/usr/app/doc-site/next.config.js
+      - ${SCHEMA_DIR}:/usr/app/_schema_repo
+    command: yarn --silent --cwd doc-site dev
+
+  docs_build:
+    build:
+      context: .
+    volumes:
+      - ./build-and-publish-docs.sh:/usr/app/build-and-publish-docs.sh
+
+    # docker-compose automatcially reads vars from .env file
+    environment:
+      DEPLOY_GITHUB_USER: ${DEPLOY_GITHUB_USER}
+      DEPLOY_GITHUB_TOKEN: ${DEPLOY_GITHUB_TOKEN}
+      DEPLOY_GITHUB_URL: ${DEPLOY_GITHUB_URL}

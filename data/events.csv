@@ -1,0 +1,322 @@
+collection,event_title,event_desc,prop_name,prop_type,prop_desc
+Segment eCommerce Spec,Products Searched,User searched for products,query,String,Query the user searched with
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,list_id,String,Product list being viewed
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,category,String,Product category being viewed
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products,Array,Products displayed in the product list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.product_id,String,Product ID displayed in the list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.sku,String,Product SKU displayed in the list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.category,String,Product Category displayed in the list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.name,String,Product Name displayed in the list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.brand,String,Product Brand displayed in the list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.variant,String,Product Variant displayed in the list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.price,Number,Product Price displayed in the list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.quantity,Integer,Product quantity displayed in the list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.position,Number,Position of product in the list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.url,String,URL of the product page for product in the list
+Segment eCommerce Spec,Product List Viewed,User viewed a product list or category,products.$.image_url,String,Image url of the product in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,list_id,String,Product list being viewed
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,category,String,Product category being viewed
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,filters,Array,Product filters that the customer is using
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,filters.$.type,String,ID of the filter type being used
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,filters.$.value,String,ID of the selection chosen
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,sorts,Array,Product sorting the customer is using
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,sorts.$.type,String,ID of the sort type being used
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,sorts.$.value,String,ID of the selection type being used
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products,Array,Products displayed in the product list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.product_id,String,Product ID displayed in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.sku,String,Product SKU displayed in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.category,String,Product Category displayed in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.name,String,Product Name displayed in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.brand,String,Product Brand displayed in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.variant,String,Product Variant displayed in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.price,Number,Product Price displayed in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.quantity,Integer,Product quantity displayed in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.position,Number,Position of product in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.url,String,URL of the product page for product in the list
+Segment eCommerce Spec,Product List Filtered,User filtered a product list or category,products.$.image_url,String,Image url of the product in the list
+Segment eCommerce Spec,Promotion Viewed,User viewed promotion,promotion_id,String,ID of the promotion
+Segment eCommerce Spec,Promotion Viewed,User viewed promotion,promotion_creative,String,Description of promotion's creative
+Segment eCommerce Spec,Promotion Viewed,User viewed promotion,promotion_name,String,Name of the promotion
+Segment eCommerce Spec,Promotion Viewed,User viewed promotion,promotion_position,String,Position of the promotion
+Segment eCommerce Spec,Promotion Clicked,User clicked on promotion,promotion_id,String,ID of the promotion
+Segment eCommerce Spec,Promotion Clicked,User clicked on promotion,promotion_creative,String,Description of promotion's creative
+Segment eCommerce Spec,Promotion Clicked,User clicked on promotion,promotion_name,String,Name of the promotion
+Segment eCommerce Spec,Promotion Clicked,User clicked on promotion,promotion_position,String,Position of the promotion
+Segment eCommerce Spec,Product Clicked,User clicked on a product,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Product Clicked,User clicked on a product,product_id,String,Database ID of the product
+Segment eCommerce Spec,Product Clicked,User clicked on a product,sku,String,Sku of the product
+Segment eCommerce Spec,Product Clicked,User clicked on a product,category,String,Product category being viewed
+Segment eCommerce Spec,Product Clicked,User clicked on a product,name,String,Name of the product
+Segment eCommerce Spec,Product Clicked,User clicked on a product,brand,String,Brand of the product
+Segment eCommerce Spec,Product Clicked,User clicked on a product,variant,String,Variant of the product
+Segment eCommerce Spec,Product Clicked,User clicked on a product,price,Number,Price of the product
+Segment eCommerce Spec,Product Clicked,User clicked on a product,quantity,Integer,Quantity of the product
+Segment eCommerce Spec,Product Clicked,User clicked on a product,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Product Clicked,User clicked on a product,position,Integer,Position of product in the list
+Segment eCommerce Spec,Product Clicked,User clicked on a product,url,String,URL of the product page for product
+Segment eCommerce Spec,Product Clicked,User clicked on a product,image_url,String,Image url of the product
+Segment eCommerce Spec,Product Viewed,User viewed a product details,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Product Viewed,User viewed a product details,product_id,String,Database ID of the product
+Segment eCommerce Spec,Product Viewed,User viewed a product details,sku,String,Sku of the product
+Segment eCommerce Spec,Product Viewed,User viewed a product details,category,String,Product category being viewed
+Segment eCommerce Spec,Product Viewed,User viewed a product details,name,String,Name of the product
+Segment eCommerce Spec,Product Viewed,User viewed a product details,brand,String,Brand of the product
+Segment eCommerce Spec,Product Viewed,User viewed a product details,variant,String,Variant of the product
+Segment eCommerce Spec,Product Viewed,User viewed a product details,price,Number,Price of the product
+Segment eCommerce Spec,Product Viewed,User viewed a product details,quantity,Integer,Quantity of the product
+Segment eCommerce Spec,Product Viewed,User viewed a product details,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Product Viewed,User viewed a product details,position,Integer,Position of product in the list
+Segment eCommerce Spec,Product Viewed,User viewed a product details,url,String,URL of the product page for product
+Segment eCommerce Spec,Product Viewed,User viewed a product details,image_url,String,Image url of the product
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,product_id,String,Database ID of the product
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,sku,String,Sku of the product
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,category,String,Product category being viewed
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,name,String,Name of the product
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,brand,String,Brand of the product
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,variant,String,Variant of the product
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,price,Number,Price of the product
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,quantity,Integer,Quantity of the product
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,position,Integer,Position of product in the list
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,url,String,URL of the product page for product
+Segment eCommerce Spec,Product Added,User added a product to their shopping cart,image_url,String,Image url of the product
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,product_id,String,Database ID of the product
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,sku,String,Sku of the product
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,category,String,Product category being viewed
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,name,String,Name of the product
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,brand,String,Brand of the product
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,variant,String,Variant of the product
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,price,Number,Price of the product
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,quantity,Integer,Quantity of the product
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,position,Integer,Position of product in the list
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,url,String,URL of the product page for product
+Segment eCommerce Spec,Product Removed,User removed a product from their shopping cart,image_url,String,Image url of the product
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products,Array,Products displayed in the product list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.product_id,String,Product ID displayed in the list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.sku,String,Product SKU displayed in the list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.category,String,Product Category displayed in the list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.name,String,Product Name displayed in the list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.brand,String,Product Brand displayed in the list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.variant,String,Product Variant displayed in the list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.price,Number,Product Price displayed in the list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.quantity,Integer,Product quantity displayed in the list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.position,Number,Position of product in the list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.url,String,URL of the product page for product in the list
+Segment eCommerce Spec,Cart Viewed,User viewed their shopping cart,products.$.image_url,String,Image url of the product in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),order_id,String,Order/transaction ID
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),affiliation,String,Store or affiliation from which this transaction occurred 
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),total,Number,Revenue with discounts and coupons added
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),revenue,Number,Revenue ($) associated with the transaction
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),shipping,Number,Shipping cost associated with the transaction
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),tax,Number,Total tax associated with the transaction
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),discount,Number,Total discount associated with the transaction
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),currency,String,Currency code associated with the transaction
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products,Array,Products displayed in the product list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.product_id,String,Product ID displayed in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.sku,String,Product SKU displayed in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.category,String,Product Category displayed in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.name,String,Product Name displayed in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.brand,String,Product Brand displayed in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.variant,String,Product Variant displayed in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.price,Number,Product Price displayed in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.quantity,Integer,Product quantity displayed in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.position,Number,Position of product in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.url,String,URL of the product page for product in the list
+Segment eCommerce Spec,Checkout Started,User initiated the order process (a transaction is created),products.$.image_url,String,Image url of the product in the list
+Segment eCommerce Spec,Checkout Step Viewed,User viewed a checkout step,checkout_id,String,Checkout transaction ID
+Segment eCommerce Spec,Checkout Step Viewed,User viewed a checkout step,step,Integer,Number representing a step in the checkout process
+Segment eCommerce Spec,Checkout Step Viewed,User viewed a checkout step,shipping_method,String,String representing the shipping method chosen
+Segment eCommerce Spec,Checkout Step Viewed,User viewed a checkout step,payment_method,String,String representing the payment method chosen
+Segment eCommerce Spec,Checkout Step Completed,User completed a checkout step,checkout_id,String,Checkout transaction ID
+Segment eCommerce Spec,Checkout Step Completed,User completed a checkout step,step,Integer,Number representing a step in the checkout process
+Segment eCommerce Spec,Checkout Step Completed,User completed a checkout step,shipping_method,String,String representing the shipping method chosen
+Segment eCommerce Spec,Checkout Step Completed,User completed a checkout step,payment_method,String,String representing the payment method chosen
+Segment eCommerce Spec,Payment Info Entered,User added payment information,checkout_id,String,Checkout transaction ID
+Segment eCommerce Spec,Payment Info Entered,User added payment information,order_id,String,Order/transaction ID
+Segment eCommerce Spec,Payment Info Entered,User added payment information,step,Integer,Number representing a step in the checkout process
+Segment eCommerce Spec,Payment Info Entered,User added payment information,shipping_method,String,String representing the shipping method chosen
+Segment eCommerce Spec,Payment Info Entered,User added payment information,payment_method,String,String representing the payment method chosen
+Segment eCommerce Spec,Order Completed,User completed the order,order_id,String,Order/transaction ID
+Segment eCommerce Spec,Order Completed,User completed the order,affiliation,String,Store or affiliation from which this transaction occurred 
+Segment eCommerce Spec,Order Completed,User completed the order,total,Number,Revenue with discounts and coupons added
+Segment eCommerce Spec,Order Completed,User completed the order,revenue,Number,Revenue ($) associated with the transaction
+Segment eCommerce Spec,Order Completed,User completed the order,shipping,Number,Shipping cost associated with the transaction
+Segment eCommerce Spec,Order Completed,User completed the order,tax,Number,Total tax associated with the transaction
+Segment eCommerce Spec,Order Completed,User completed the order,discount,Number,Total discount associated with the transaction
+Segment eCommerce Spec,Order Completed,User completed the order,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Order Completed,User completed the order,currency,String,Currency code associated with the transaction
+Segment eCommerce Spec,Order Completed,User completed the order,products,Array,Products displayed in the product list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.product_id,String,Product ID displayed in the list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.sku,String,Product SKU displayed in the list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.category,String,Product Category displayed in the list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.name,String,Product Name displayed in the list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.brand,String,Product Brand displayed in the list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.variant,String,Product Variant displayed in the list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.price,Number,Product Price displayed in the list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.quantity,Integer,Product quantity displayed in the list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.position,Number,Position of product in the list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.url,String,URL of the product page for product in the list
+Segment eCommerce Spec,Order Completed,User completed the order,products.$.image_url,String,Image url of the product in the list
+Segment eCommerce Spec,Order Updated,User updated the order,order_id,String,Order/transaction ID
+Segment eCommerce Spec,Order Updated,User updated the order,affiliation,String,Store or affiliation from which this transaction occurred 
+Segment eCommerce Spec,Order Updated,User updated the order,total,Number,Revenue with discounts and coupons added
+Segment eCommerce Spec,Order Updated,User updated the order,revenue,Number,Revenue ($) associated with the transaction
+Segment eCommerce Spec,Order Updated,User updated the order,shipping,Number,Shipping cost associated with the transaction
+Segment eCommerce Spec,Order Updated,User updated the order,tax,Number,Total tax associated with the transaction
+Segment eCommerce Spec,Order Updated,User updated the order,discount,Number,Total discount associated with the transaction
+Segment eCommerce Spec,Order Updated,User updated the order,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Order Updated,User updated the order,currency,String,Currency code associated with the transaction
+Segment eCommerce Spec,Order Updated,User updated the order,products,Array,Products displayed in the product list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.product_id,String,Product ID displayed in the list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.sku,String,Product SKU displayed in the list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.category,String,Product Category displayed in the list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.name,String,Product Name displayed in the list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.brand,String,Product Brand displayed in the list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.variant,String,Product Variant displayed in the list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.price,Number,Product Price displayed in the list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.quantity,Integer,Product quantity displayed in the list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.position,Number,Position of product in the list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.url,String,URL of the product page for product in the list
+Segment eCommerce Spec,Order Updated,User updated the order,products.$.image_url,String,Image url of the product in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,order_id,String,Order/transaction ID
+Segment eCommerce Spec,Order Refunded,User refunded the order,affiliation,String,Store or affiliation from which this transaction occurred 
+Segment eCommerce Spec,Order Refunded,User refunded the order,total,Number,Revenue with discounts and coupons added
+Segment eCommerce Spec,Order Refunded,User refunded the order,revenue,Number,Revenue ($) associated with the transaction
+Segment eCommerce Spec,Order Refunded,User refunded the order,shipping,Number,Shipping cost associated with the transaction
+Segment eCommerce Spec,Order Refunded,User refunded the order,tax,Number,Total tax associated with the transaction
+Segment eCommerce Spec,Order Refunded,User refunded the order,discount,Number,Total discount associated with the transaction
+Segment eCommerce Spec,Order Refunded,User refunded the order,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Order Refunded,User refunded the order,currency,String,Currency code associated with the transaction
+Segment eCommerce Spec,Order Refunded,User refunded the order,products,Array,Products displayed in the product list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.product_id,String,Product ID displayed in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.sku,String,Product SKU displayed in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.category,String,Product Category displayed in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.name,String,Product Name displayed in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.brand,String,Product Brand displayed in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.variant,String,Product Variant displayed in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.price,Number,Product Price displayed in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.quantity,Integer,Product quantity displayed in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.position,Number,Position of product in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.url,String,URL of the product page for product in the list
+Segment eCommerce Spec,Order Refunded,User refunded the order,products.$.image_url,String,Image url of the product in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,order_id,String,Order/transaction ID
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,affiliation,String,Store or affiliation from which this transaction occurred 
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,total,Number,Revenue with discounts and coupons added
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,revenue,Number,Revenue ($) associated with the transaction
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,shipping,Number,Shipping cost associated with the transaction
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,tax,Number,Total tax associated with the transaction
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,discount,Number,Total discount associated with the transaction
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,currency,String,Currency code associated with the transaction
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products,Array,Products displayed in the product list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.product_id,String,Product ID displayed in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.sku,String,Product SKU displayed in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.category,String,Product Category displayed in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.name,String,Product Name displayed in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.brand,String,Product Brand displayed in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.variant,String,Product Variant displayed in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.price,Number,Product Price displayed in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.quantity,Integer,Product quantity displayed in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.position,Number,Position of product in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.url,String,URL of the product page for product in the list
+Segment eCommerce Spec,Order Cancelled,User cancelled the order,products.$.image_url,String,Image url of the product in the list
+Segment eCommerce Spec,Coupon Entered,User entered a coupon on a shopping cart or order,order_id,String,Order/transaction ID
+Segment eCommerce Spec,Coupon Entered,User entered a coupon on a shopping cart or order,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Coupon Entered,User entered a coupon on a shopping cart or order,coupon_id,String,ID of the coupon
+Segment eCommerce Spec,Coupon Entered,User entered a coupon on a shopping cart or order,coupon_name,String,Name of the coupon
+Segment eCommerce Spec,Coupon Applied,Coupon was applied on a user’s shopping cart or order,order_id,String,Order/transaction ID
+Segment eCommerce Spec,Coupon Applied,Coupon was applied on a user’s shopping cart or order,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Coupon Applied,Coupon was applied on a user’s shopping cart or order,coupon_id,String,ID of the coupon
+Segment eCommerce Spec,Coupon Applied,Coupon was applied on a user’s shopping cart or order,coupon_name,String,Name of the coupon
+Segment eCommerce Spec,Coupon Applied,Coupon was applied on a user’s shopping cart or order,discount,Number,Total discount associated with the transaction
+Segment eCommerce Spec,Coupon Denied,Coupon was denied from a user’s shopping cart or order,order_id,String,Order/transaction ID
+Segment eCommerce Spec,Coupon Denied,Coupon was denied from a user’s shopping cart or order,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Coupon Denied,Coupon was denied from a user’s shopping cart or order,coupon_id,String,ID of the coupon
+Segment eCommerce Spec,Coupon Denied,Coupon was denied from a user’s shopping cart or order,coupon_name,String,Name of the coupon
+Segment eCommerce Spec,Coupon Denied,Coupon was denied from a user’s shopping cart or order,reason,String,Reason the coupon was denied
+Segment eCommerce Spec,Coupon Removed,User removed a coupon from a cart or order,order_id,String,Order/transaction ID
+Segment eCommerce Spec,Coupon Removed,User removed a coupon from a cart or order,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Coupon Removed,User removed a coupon from a cart or order,coupon_id,String,ID of the coupon
+Segment eCommerce Spec,Coupon Removed,User removed a coupon from a cart or order,coupon_name,String,Name of the coupon
+Segment eCommerce Spec,Coupon Removed,User removed a coupon from a cart or order,discount,Number,Total discount associated with the transaction
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,wishlist_id,String,Wishlist ID to which the product was added
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,wishlist_name,String,Wishlist name to which the product was added
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,product_id,String,Database ID of the product
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,sku,String,Sku of the product
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,category,String,Product category being viewed
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,name,String,Name of the product
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,brand,String,Brand of the product
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,variant,String,Variant of the product
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,price,Number,Price of the product
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,quantity,Integer,Quantity of the product
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,position,Integer,Position of product in the list
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,url,String,URL of the product page for product
+Segment eCommerce Spec,Product Added to Wishlist,User added a product to the wish list,image_url,String,Image url of the product
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,wishlist_id,String,Wishlist ID to which the product was added
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,wishlist_name,String,Wishlist name to which the product was added
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,product_id,String,Database ID of the product
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,sku,String,Sku of the product
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,category,String,Product category being viewed
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,name,String,Name of the product
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,brand,String,Brand of the product
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,variant,String,Variant of the product
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,price,Number,Price of the product
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,quantity,Integer,Quantity of the product
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,position,Integer,Position of product in the list
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,url,String,URL of the product page for product
+Segment eCommerce Spec,Product Removed from Wishlist,User removed a product from the wish list,image_url,String,Image url of the product
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,wishlist_id,String,Wishlist ID to which the product was added
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,wishlist_name,String,Wishlist name to which the product was added
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,product_id,String,Database ID of the product
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,sku,String,Sku of the product
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,category,String,Product category being viewed
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,name,String,Name of the product
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,brand,String,Brand of the product
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,variant,String,Variant of the product
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,price,Number,Price of the product
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,quantity,Integer,Quantity of the product
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,coupon,String,Coupon code associated with the product
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,position,Integer,Position of product in the list
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,url,String,URL of the product page for product
+Segment eCommerce Spec,Wishlist Product Added to Cart,User added a wishlist product to the cart,image_url,String,Image url of the product
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,share_via,String,Method of sharing
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,share_message,String,Message that the sender sent
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,recipient,String,Recipient of the sharing
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,product_id,String,Database ID of the product
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,sku,String,Sku of the product
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,category,String,Product category being viewed
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,name,String,Name of the product
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,brand,String,Brand of the product
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,variant,String,Variant of the product
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,price,Number,Price of the product
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,url,String,URL of the product page for product
+Segment eCommerce Spec,Product Shared,Shared a product with one or more friends,image_url,String,Image url of the product
+Segment eCommerce Spec,Cart Shared,Shared the cart with one or more friends,share_via,String,Method of sharing
+Segment eCommerce Spec,Cart Shared,Shared the cart with one or more friends,share_message,String,Message that the sender sent
+Segment eCommerce Spec,Cart Shared,Shared the cart with one or more friends,recipient,String,Recipient of the sharing
+Segment eCommerce Spec,Cart Shared,Shared the cart with one or more friends,cart_id,String,Cart ID associated with the product displayed
+Segment eCommerce Spec,Cart Shared,Shared the cart with one or more friends,products,Array,Products displayed in the product list
+Segment eCommerce Spec,Cart Shared,Shared the cart with one or more friends,products.$.product_id,String,Product ID displayed in the list
+Segment eCommerce Spec,Product Reviewed,User reviewed a product,product_id,String,Database ID of the product
+Segment eCommerce Spec,Product Reviewed,User reviewed a product,review_id,String,ID of the review posted
+Segment eCommerce Spec,Product Reviewed,User reviewed a product,review_body,String,Content of the review
+Segment eCommerce Spec,Product Reviewed,User reviewed a product,rating,Integer,Star rating
+Product Usage,Object created,User created an object in a product,object,String,Type of object created
+Product Usage,Object updated,User updated an object in a product,object,String,Type of object updated
+Product Usage,Object deleted,User deleted an object in a product,object,String,Type of object deleted

@@ -1,0 +1,26 @@
+{
+  "extends": ["next/core-web-vitals", "prettier"],
+  "rules": {
+    "no-plusplus": ["off"],
+    "no-unused-expressions": ["error", {"allowTernary": true}],
+    "prefer-promise-reject-errors": ["off"],
+    "object-curly-spacing": "off",
+    "arrow-parens": ["error", "always"],
+    "comma-dangle": ["error", "never"],
+    "max-len": ["error", {"code": 150, "ignoreComments": true}],
+    "no-nested-ternary": ["off"],
+    "no-await-in-loop": ["off"],
+    "class-methods-use-this": ["off"],
+    "max-classes-per-file": ["error", 3],
+    "no-console": ["off"],
+    "no-underscore-dangle": ["off"],
+    "global-require": ["off"],
+    "import/prefer-default-export": ["off"],
+    "import/extension": ["off"],
+    "no-param-reassign": ["error", {"props": false}],
+    "jsx-a11y/anchor-is-valid": ["off"],
+    "react/react-in-jsx-scope": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "react/prop-types": ["off"]
+  }
+}
