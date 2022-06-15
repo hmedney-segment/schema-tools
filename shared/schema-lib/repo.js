@@ -44,6 +44,14 @@ export class SchemaRepo {
     // add computed props
     event._slug = titleToSlug(event.title);
 
+    // does slug === filename?
+    const fileName = path.parse(filePath).name;
+    if (event._slug !== fileName) {
+      console.warn(
+        `Warning: event filename does not match title slug - filename: ${fileName}, slug: ${event._slug}, title: ${event.title}`
+      );
+    }
+
     return event;
   }
 
