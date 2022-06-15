@@ -36,8 +36,15 @@ export class SchemaRepo {
     if (!fsx.existsSync(filePath)) {
       return null;
     }
+
+    // get event content
     const fileContent = fsx.readFileSync(filePath, 'utf-8');
-    return yaml.load(fileContent);
+    const event = yaml.load(fileContent);
+
+    // add computed props
+    event._slug = titleToSlug(event.title);
+
+    return event;
   }
 
   saveEventFile(filePath, event) {
