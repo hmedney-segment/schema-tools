@@ -11,7 +11,7 @@ services:
       - ./doc-site/public:/usr/app/doc-site/public
       - ./doc-site/styles:/usr/app/doc-site/styles
       - ./doc-site/next.config.js:/usr/app/doc-site/next.config.js
-      - ${SCHEMA_DIR}:/usr/app/_schema_repo
+      - ${SCHEMA_DIR:-./data/simple-schema-repo}:/usr/app/_schema_repo
     command: yarn --silent --cwd doc-site dev
 
   docs_build:
