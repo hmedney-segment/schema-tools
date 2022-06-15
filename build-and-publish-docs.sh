@@ -34,12 +34,12 @@ GITHUB_REMOTE="https://$DEPLOY_GITHUB_USER:$DEPLOY_GITHUB_TOKEN@$HOST/$ORG/$REPO
 # clone repo
 git clone --branch main --depth 1 "$GITHUB_REMOTE" /usr/app/_schema_repo
 
-# build doc site to ./out
+# build NextJS static site and export to ./out
 cd doc-site
 yarn build
 yarn export
 
-# publish gh-pages
+# publish ./out to gh-pages
 touch out/.nojekyll
 git config --global user.email "hmedney@gmail.com"
 git config --global user.name "Hunter Medney"
