@@ -22,7 +22,7 @@ function ResultsList({events}) {
 
 function SearchBar({onSearch, ...props}) {
   const [searchString, setSearchString] = useState();
-  const debouncedOnSearch = useMemo(() => debounce(onSearch, 300), []);
+  const debouncedOnSearch = useMemo(() => debounce(onSearch, 300), [onSearch]);
 
   function onSubmit(e) {
     e.preventDefault();
