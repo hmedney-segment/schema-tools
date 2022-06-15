@@ -39,7 +39,7 @@ function SearchBar({onSearch, ...props}) {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <Search onChange={onChange} labelText="Search" />
+        <Search {...props} onChange={onChange} labelText="Search" />
       </form>
     </div>
   );
