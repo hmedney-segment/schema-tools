@@ -7,6 +7,7 @@ services:
       - 3000:3000
     volumes:
       - ./doc-site/lib:/usr/app/doc-site/lib
+      - ./doc-site/components:/usr/app/doc-site/components
       - ./doc-site/pages:/usr/app/doc-site/pages
       - ./doc-site/public:/usr/app/doc-site/public
       - ./doc-site/styles:/usr/app/doc-site/styles
