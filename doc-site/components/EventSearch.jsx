@@ -1,14 +1,25 @@
 import {useState, useMemo} from 'react';
 import debounce from 'lodash.debounce';
+import {useRouter} from 'next/router';
 import {Search, Table, TableBody, TableRow, TableCell} from '@carbon/react';
 import elasticlunr from 'elasticlunr';
 
 function ResultsList({events}) {
+  const router = useRouter();
+
+  function goTo(route) {
+    return (e) => {
+      e.preventDefault();
+      router.push(route);
+      return false;
+    };
+  }
+
   return (
     <Table>
       <TableBody>
         {events.map((event) => (
-          <TableRow key={event.title}>
+          <TableRow key={event.title} style={{cursor: 'pointer'}} onClick={goTo(`/events/${event._slug}`)}>
             <TableCell>
               <strong>{event.title}</strong>
             </TableCell>
@@ -20,7 +31,7 @@ function ResultsList({events}) {
   );
 }
 
-function SearchBar({onSearch, ...props}) {
+function SearchBar({onSearch}) {
   const [searchString, setSearchString] = useState();
   const debouncedOnSearch = useMemo(() => debounce(onSearch, 300), [onSearch]);
 
@@ -36,13 +47,12 @@ function SearchBar({onSearch, ...props}) {
     debouncedOnSearch(normalizedValue);
   }
 
-  console.log({...props});
   return (
-    <Search onChange={onChange} labelText="Search" {...props} />
-    // <div>
-    //   <form onSubmit={onSubmit}>
-    //   </form>
-    // </div>
+    <div>
+      <form onSubmit={onSubmit}>
+        <Search onChange={onChange} labelText="Search" />
+      </form>
+    </div>
   );
 }
 
@@ -54,6 +64,8 @@ function SearchResults({searchIndex, searchString, events}) {
 
 export default function EventSearch({events, ...props}) {
   const [searchString, setSearchString] = useState();
+  const [hasFocus, setHasFocus] = useState();
+
   const searchIndex = useMemo(() => {
     console.log(`Adding ${events.length} events to Elasticlunr.js index...`);
     const index = elasticlunr();
@@ -65,7 +77,7 @@ export default function EventSearch({events, ...props}) {
   }, [events]);
 
   return (
-    <div {...props}>
+    <div {...props} onFocus={() => setHasFocus(true)} onBlur={(e) => setHasFocus(false)}>
       <div>
         <SearchBar onSearch={setSearchString} />
       </div>
