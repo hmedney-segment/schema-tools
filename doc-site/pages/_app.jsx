@@ -17,9 +17,9 @@ function Layout({children}) {
 
   return (
     <div className="container">
-      <Header aria-label="Segment Schema">
-        <HeaderName href="" prefix="Segment" onClick={goTo('/')}>
-          Schema
+      <Header aria-label="Schema Docs">
+        <HeaderName href="" prefix="Schema" onClick={goTo('/')}>
+          Docs
         </HeaderName>
         <HeaderNavigation aria-label="Navigation">
           <HeaderMenuItem href="" onClick={goTo('/events')}>
@@ -39,7 +39,7 @@ export default function App({Component, pageProps}) {
   return (
     <Layout>
       <Head>
-        <title>Segment Schema</title>
+        <title>Schema Docs</title>
       </Head>
       <Component {...pageProps} />
     </Layout>

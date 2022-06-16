@@ -12,7 +12,7 @@ export default function Home({events}) {
       <Grid className="">
         <Column lg={3} />
         <Column lg={10} className="text-center">
-          <h1>Segment schema</h1>
+          <h1>Schema Docs</h1>
 
           <p>
             This is a demo site showing generated documentation for Segment events.
