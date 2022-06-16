@@ -34,7 +34,7 @@ function rowsToEvents(rows) {
       // row refers to a context prop - add to context map
       const contextPropName = prop_name.slice(8);
       currentEvent.contextMap[contextPropName] = {
-        name: prop_name,
+        name: contextPropName,
         type: prop_type.toLowerCase(),
         description: prop_desc
       };
