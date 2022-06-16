@@ -20,20 +20,25 @@ function rowsToEvents(rows) {
         title: event_title,
         collection: collection,
         description: event_desc,
-        propertiesMap: {}
+        propertiesMap: {},
+        contextMap: {}
       };
     }
     const currentEvent = eventMap[event_title];
 
     // add the prop on this row to the event
-    if (prop_name.indexOf('.$.') === -1) {
-      // normal prop row
-      currentEvent.propertiesMap[prop_name] = {
+    if (prop_name.length === 0) {
+      // row has no prop - continue to next row
+      return;
+    } else if (prop_name.startsWith('context.')) {
+      // row refers to a context prop - add to context map
+      const contextPropName = prop_name.slice(8);
+      currentEvent.contextMap[contextPropName] = {
         name: prop_name,
         type: prop_type.toLowerCase(),
         description: prop_desc
       };
-    } else {
+    } else if (prop_name.indexOf('.$.') !== -1) {
       // row refers to a prop of an object in an array
       // assumes the parent array prop row has already been processed
       const [parentPropName, childPropName] = prop_name.split('.$.');
@@ -50,16 +55,31 @@ function rowsToEvents(rows) {
         type: prop_type.toLowerCase(),
         description: prop_desc
       };
+    } else {
+      // normal prop row
+      currentEvent.propertiesMap[prop_name] = {
+        name: prop_name,
+        type: prop_type.toLowerCase(),
+        description: prop_desc
+      };
     }
   });
 
   // event map to event array
   const events = Object.values(eventMap);
 
-  // prop map to prop array (also remove prop map field)
+  // prop and context maps to arrays (also remove map field)
   events.forEach((event) => {
     event.properties = Object.values(event.propertiesMap).sort();
+    event.context = Object.values(event.contextMap).sort();
     delete event.propertiesMap;
+    delete event.contextMap;
+    // if (event.properties.length === 0) {
+    //   delete event.properties;
+    // }
+    if (event.context.length === 0) {
+      delete event.context;
+    }
   });
 
   return events;
