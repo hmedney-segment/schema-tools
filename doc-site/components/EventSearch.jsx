@@ -36,12 +36,13 @@ function SearchBar({onSearch, ...props}) {
     debouncedOnSearch(normalizedValue);
   }
 
+  console.log({...props});
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <Search {...props} onChange={onChange} labelText="Search" />
-      </form>
-    </div>
+    <Search onChange={onChange} labelText="Search" {...props} />
+    // <div>
+    //   <form onSubmit={onSubmit}>
+    //   </form>
+    // </div>
   );
 }
 
@@ -51,7 +52,7 @@ function SearchResults({searchIndex, searchString, events}) {
   return <ResultsList events={matchingEvents} />;
 }
 
-export default function EventSearch({events}) {
+export default function EventSearch({events, ...props}) {
   const [searchString, setSearchString] = useState();
   const searchIndex = useMemo(() => {
     console.log(`Adding ${events.length} events to Elasticlunr.js index...`);
@@ -64,7 +65,7 @@ export default function EventSearch({events}) {
   }, [events]);
 
   return (
-    <div>
+    <div {...props}>
       <div>
         <SearchBar onSearch={setSearchString} />
       </div>

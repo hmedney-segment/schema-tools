@@ -2,26 +2,32 @@ import {Header, HeaderName, HeaderNavigation, HeaderMenuItem, Content} from '@ca
 import {useRouter} from 'next/router';
 import Head from 'next/head';
 import '../styles/index.scss';
+import 'bootstrap/dist/css/bootstrap-utilities.min.css';
 
 function Layout({children}) {
   const router = useRouter();
 
+  function goTo(route) {
+    return (e) => {
+      e.preventDefault();
+      router.push(route);
+      return false;
+    };
+  }
+
   return (
     <div className="container">
       <Header aria-label="Segment Schema">
-        <HeaderName
-          href="#"
-          prefix="Segment"
-          onClick={() => {
-            router.push('/');
-            return false;
-          }}
-        >
+        <HeaderName href="" prefix="Segment" onClick={goTo('/')}>
           Schema
         </HeaderName>
         <HeaderNavigation aria-label="Navigation">
-          <HeaderMenuItem onClick={() => router.push('/events')}>Events</HeaderMenuItem>
-          <HeaderMenuItem onClick={() => router.push('/one-pager')}>One-pager</HeaderMenuItem>
+          <HeaderMenuItem href="" onClick={goTo('/events')}>
+            Events
+          </HeaderMenuItem>
+          <HeaderMenuItem href="" onClick={goTo('/one-pager')}>
+            One-pager
+          </HeaderMenuItem>
         </HeaderNavigation>
       </Header>
       <Content>{children}</Content>
@@ -29,7 +35,7 @@ function Layout({children}) {
   );
 }
 
-function App({Component, pageProps}) {
+export default function App({Component, pageProps}) {
   return (
     <Layout>
       <Head>
@@ -39,5 +45,3 @@ function App({Component, pageProps}) {
     </Layout>
   );
 }
-
-export default App;
