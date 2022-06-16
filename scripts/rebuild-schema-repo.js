@@ -74,9 +74,6 @@ function rowsToEvents(rows) {
     event.context = Object.values(event.contextMap).sort();
     delete event.propertiesMap;
     delete event.contextMap;
-    // if (event.properties.length === 0) {
-    //   delete event.properties;
-    // }
     if (event.context.length === 0) {
       delete event.context;
     }
