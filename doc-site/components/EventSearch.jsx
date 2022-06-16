@@ -19,7 +19,12 @@ function ResultsList({events}) {
     <Table>
       <TableBody>
         {events.map((event) => (
-          <TableRow key={event.title} style={{cursor: 'pointer'}} onClick={goTo(`/events/${event._slug}`)}>
+          <TableRow
+            key={event.title}
+            style={{cursor: 'pointer'}}
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={goTo(`/events/${event._slug}`)}
+          >
             <TableCell>
               <strong>{event.title}</strong>
             </TableCell>
@@ -77,11 +82,11 @@ export default function EventSearch({events, ...props}) {
   }, [events]);
 
   return (
-    <div {...props} onFocus={() => setHasFocus(true)} onBlur={(e) => setHasFocus(false)}>
+    <div {...props} onFocus={() => setHasFocus(true)} onBlur={() => setHasFocus(false)}>
       <div>
         <SearchBar onSearch={setSearchString} />
       </div>
-      {searchString && <SearchResults searchIndex={searchIndex} searchString={searchString} events={events} />}
+      {hasFocus && searchString && <SearchResults searchIndex={searchIndex} searchString={searchString} events={events} />}
     </div>
   );
 }
