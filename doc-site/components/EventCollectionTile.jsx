@@ -18,7 +18,7 @@ export default function EventCollectionTile({collectionName, events, ...props}) 
       <ul>
         {events.map((event) => (
           <li key={event._slug}>
-            <Link href="" onClick={goTo(`/event/${event._slug}`)}>
+            <Link href="" onClick={goTo(`/events/${event._slug}`)}>
               {event.title}
             </Link>
           </li>

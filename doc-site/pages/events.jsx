@@ -1,6 +1,5 @@
 import {getEvents} from '../lib/schema';
 import EventCollectionTile from '../components/EventCollectionTile';
-// import Masonry from 'react-masonry-css';
 import Masonry from 'react-responsive-masonry';
 
 export function getStaticProps() {

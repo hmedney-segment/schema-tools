@@ -23,10 +23,7 @@ function Layout({children}) {
         </HeaderName>
         <HeaderNavigation aria-label="Navigation">
           <HeaderMenuItem href="" onClick={goTo('/events')}>
-            Events
-          </HeaderMenuItem>
-          <HeaderMenuItem href="" onClick={goTo('/one-pager')}>
-            One-pager
+            Browse
           </HeaderMenuItem>
         </HeaderNavigation>
       </Header>
