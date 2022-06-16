@@ -320,3 +320,286 @@ Segment eCommerce Spec,Product Reviewed,User reviewed a product,rating,Integer,S
 Product Usage,Object created,User created an object in a product,object,String,Type of object created
 Product Usage,Object updated,User updated an object in a product,object,String,Type of object updated
 Product Usage,Object deleted,User deleted an object in a product,object,String,Type of object deleted
+Segment B2B SaaS Spec,Account Created,New account is created,account_name,String,The name of the account being created
+Segment B2B SaaS Spec,Account Created,New account is created,context.group_id,String,The id of the account being created/updated/deleted
+Segment B2B SaaS Spec,Account Deleted,Account is deleted,account_name,String,The name of the account being created
+Segment B2B SaaS Spec,Account Deleted,Account is deleted,context.group_id,String,The id of the account being created/updated/deleted
+Segment B2B SaaS Spec,Signed Up,User signs up for your service,username,String,The username of the user
+Segment B2B SaaS Spec,Signed Up,User signs up for your service,context.group_id,String,The id of the account being created/updated/deleted
+Segment B2B SaaS Spec,Signed Up,User signs up for your service,signup_type,String,The type of signup (viral or organic)
+Segment B2B SaaS Spec,Signed Up,User signs up for your service,first_name,String,User's first name
+Segment B2B SaaS Spec,Signed Up,User signs up for your service,last_name,String,User's last name
+Segment B2B SaaS Spec,Signed Up,User signs up for your service,email,String,User's email address
+Segment B2B SaaS Spec,Signed Up,User signs up for your service,phone,String,User's phone number
+Segment B2B SaaS Spec,Signed Up,User signs up for your service,title,String,User's salutation
+Segment B2B SaaS Spec,Signed In,User signs in to your service,username,String,The username of the user
+Segment B2B SaaS Spec,Signed In,User signs in to your service,context.group_id,String,The id of the account being created/updated/deleted
+Segment B2B SaaS Spec,Signed Out,User signs out for your service,username,String,The username of the user
+Segment B2B SaaS Spec,Signed Out,User signs out for your service,context.group_id,String,The id of the account being created/updated/deleted
+Segment B2B SaaS Spec,Invite Sent,User invites another user,invitee_email,String,Email address of the person receiving the invite
+Segment B2B SaaS Spec,Invite Sent,User invites another user,invitee_first_name,String,First name of the person receiving the invite
+Segment B2B SaaS Spec,Invite Sent,User invites another user,invitee_last_name,String,Last name of the person receiving the invite
+Segment B2B SaaS Spec,Invite Sent,User invites another user,invitee_role,String,Role of the invitee
+Segment B2B SaaS Spec,Account Added User,User is added to a group or account,context.group_id,String,The id of the account being created/updated/deleted
+Segment B2B SaaS Spec,Account Added User,User is added to a group or account,role,String,Permission group for the user
+Segment B2B SaaS Spec,Account Removed User,User is removed from a group or account,context.group_id,String,The id of the account being created/updated/deleted
+Segment B2B SaaS Spec,Trial Started,Trial is started,trial_start_date,String,Date when the trial starts (ISO-8601 date string)
+Segment B2B SaaS Spec,Trial Started,Trial is started,trial_end_date,String,Date when the trial ends (ISO-8601 date string)
+Segment B2B SaaS Spec,Trial Started,Trial is started,trial_plan_name,String,Name of the plan being trialed
+Segment B2B SaaS Spec,Trial Started,Trial is started,context.group_id,String,The id of the account being created/updated/deleted
+Segment B2B SaaS Spec,Trial Ended,Trial is ended,trial_start_date,String,Date when the trial starts (ISO-8601 date string)
+Segment B2B SaaS Spec,Trial Ended,Trial is ended,trial_end_date,String,Date when the trial ends (ISO-8601 date string)
+Segment B2B SaaS Spec,Trial Ended,Trial is ended,trial_plan_name,String,Name of the plan being trialed
+Segment B2B SaaS Spec,Trial Ended,Trial is ended,context.group_id,String,The id of the account being created/updated/deleted
+Segment Video Spec,Video Playback Started,User presses Play.,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Playback Started,User presses Play.,content_asset_ids,Array,Asset Ids of the 2+ videos playing/about to be played
+Segment Video Spec,Video Playback Started,User presses Play.,content_pod_ids,Array,Pod Ids of the 2+ videos playing/about to be played
+Segment Video Spec,Video Playback Started,User presses Play.,ad_asset_ids,Array,Asset Ids of the 2+ ads playing/about to be played
+Segment Video Spec,Video Playback Started,User presses Play.,ad_pod_ids,Array,Pod Ids of the 2+ ads playing or about to be played 
+Segment Video Spec,Video Playback Started,User presses Play.,ad_type,String,The ad type
+Segment Video Spec,Video Playback Started,User presses Play.,position,Integer,Position of product in the list
+Segment Video Spec,Video Playback Started,User presses Play.,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Playback Started,User presses Play.,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Playback Started,User presses Play.,framerate,Integer,The average fps.
+Segment Video Spec,Video Playback Started,User presses Play.,video_player,String,"The name of the video player (ie ‘youtube’, ‘vimeo’)."
+Segment Video Spec,Video Playback Started,User presses Play.,sound,Integer,The sound level of the playback
+Segment Video Spec,Video Playback Started,User presses Play.,full_screen,Boolean,true if playback is in full screen mode
+Segment Video Spec,Video Playback Started,User presses Play.,ad_enabled,Boolean,false if the user has any ad blockers
+Segment Video Spec,Video Playback Started,User presses Play.,quality,String,The quality of the video
+Segment Video Spec,Video Playback Started,User presses Play.,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Playback Paused,User presses Pause.,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Playback Paused,User presses Pause.,content_asset_ids,Array,Asset Ids of the 2+ videos playing/about to be played
+Segment Video Spec,Video Playback Paused,User presses Pause.,content_pod_ids,Array,Pod Ids of the 2+ videos playing/about to be played
+Segment Video Spec,Video Playback Paused,User presses Pause.,ad_asset_ids,Array,Asset Ids of the 2+ ads playing/about to be played
+Segment Video Spec,Video Playback Paused,User presses Pause.,ad_pod_ids,Array,Pod Ids of the 2+ ads playing or about to be played 
+Segment Video Spec,Video Playback Paused,User presses Pause.,ad_type,String,The ad type
+Segment Video Spec,Video Playback Paused,User presses Pause.,position,Integer,Position of product in the list
+Segment Video Spec,Video Playback Paused,User presses Pause.,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Playback Paused,User presses Pause.,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Playback Paused,User presses Pause.,framerate,Integer,The average fps.
+Segment Video Spec,Video Playback Paused,User presses Pause.,video_player,String,"The name of the video player (ie ‘youtube’, ‘vimeo’)."
+Segment Video Spec,Video Playback Paused,User presses Pause.,sound,Integer,The sound level of the playback
+Segment Video Spec,Video Playback Paused,User presses Pause.,full_screen,Boolean,true if playback is in full screen mode
+Segment Video Spec,Video Playback Paused,User presses Pause.,ad_enabled,Boolean,false if the user has any ad blockers
+Segment Video Spec,Video Playback Paused,User presses Pause.,quality,String,The quality of the video
+Segment Video Spec,Video Playback Paused,User presses Pause.,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",content_asset_ids,Array,Asset Ids of the 2+ videos playing/about to be played
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",content_pod_ids,Array,Pod Ids of the 2+ videos playing/about to be played
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",position,Integer,Position of product in the list
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",bitrate,Integer,The current kbps.
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",framerate,Integer,The average fps.
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",video_player,String,"The name of the video player (ie ‘youtube’, ‘vimeo’)."
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",sound,Integer,The sound level of the playback
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",full_screen,Boolean,true if playback is in full screen mode
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",ad_enabled,Boolean,false if the user has any ad blockers
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",quality,String,The quality of the video
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Playback Interrupted,"Playback stops unintentionally (ie. network loss, browser close/redirect, app crash)",method,String,how the playback was interrupted
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,content_asset_id,String,Asset Id of the video playing/about to be played 
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,content_pod_id,String,Pod Id of the video playing/about to be played
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,position,Integer,Position of product in the list
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,framerate,Integer,The average fps.
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,video_player,String,"The name of the video player (ie ‘youtube’, ‘vimeo’)."
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,sound,Integer,The sound level of the playback
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,full_screen,Boolean,true if playback is in full screen mode
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,ad_enabled,Boolean,false if the user has any ad blockers
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,quality,String,The quality of the video
+Segment Video Spec,Video Playback Buffer Started,Playback starts buffering content or an ad,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,content_asset_id,String,Asset Id of the video playing/about to be played 
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,content_pod_id,String,Pod Id of the video playing/about to be played
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,position,Integer,Position of product in the list
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,framerate,Integer,The average fps.
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,video_player,String,"The name of the video player (ie ‘youtube’, ‘vimeo’)."
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,sound,Integer,The sound level of the playback
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,full_screen,Boolean,true if playback is in full screen mode
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,ad_enabled,Boolean,false if the user has any ad blockers
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,quality,String,The quality of the video
+Segment Video Spec,Video Playback Buffer Completed,Playback finishes buffering content or an ad,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,content_asset_id,String,Asset Id of the video playing/about to be played 
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,content_pod_id,String,Pod Id of the video playing/about to be played
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,position,Integer,Position of product in the list
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,seek_position,Integer,Playhead position in seconds where the user is seeking to
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,framerate,Integer,The average fps.
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,video_player,String,"The name of the video player (ie ‘youtube’, ‘vimeo’)."
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,sound,Integer,The sound level of the playback
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,full_screen,Boolean,true if playback is in full screen mode
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,ad_enabled,Boolean,false if the user has any ad blockers
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,quality,String,The quality of the video
+Segment Video Spec,Video Playback Seek Started,User manually seeks a certain position of content or ad in the playback,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,content_asset_id,String,Asset Id of the video playing/about to be played 
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,content_pod_id,String,Pod Id of the video playing/about to be played
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,position,Integer,Position of product in the list
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,seek_position,Integer,Playhead position in seconds where the user is seeking to
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,framerate,Integer,The average fps.
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,video_player,String,"The name of the video player (ie ‘youtube’, ‘vimeo’)."
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,sound,Integer,The sound level of the playback
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,full_screen,Boolean,true if playback is in full screen mode
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,ad_enabled,Boolean,false if the user has any ad blockers
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,quality,String,The quality of the video
+Segment Video Spec,Video Playback Seek Completed,Playback delivers seeked position of content or ad,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,content_asset_id,String,Asset Id of the video playing/about to be played 
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,content_pod_id,String,Pod Id of the video playing/about to be played
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,position,Integer,Position of product in the list
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,framerate,Integer,The average fps.
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,video_player,String,"The name of the video player (ie ‘youtube’, ‘vimeo’)."
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,sound,Integer,The sound level of the playback
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,full_screen,Boolean,true if playback is in full screen mode
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,ad_enabled,Boolean,false if the user has any ad blockers
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,quality,String,The quality of the video
+Segment Video Spec,Video Playback Resumed,Playback is resumed after being paused,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,content_asset_id,String,Asset Id of the video playing/about to be played 
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,content_pod_id,String,Pod Id of the video playing/about to be played
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,position,Integer,Position of product in the list
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,framerate,Integer,The average fps.
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,video_player,String,"The name of the video player (ie ‘youtube’, ‘vimeo’)."
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,sound,Integer,The sound level of the playback
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,full_screen,Boolean,true if playback is in full screen mode
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,ad_enabled,Boolean,false if the user has any ad blockers
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,quality,String,The quality of the video
+Segment Video Spec,Video Playback Completed,Playback is complete and only when the session is finished,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Content Started,The video content starts playing,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Content Started,The video content starts playing,content_asset_id,String,Asset Id of the video playing/about to be played 
+Segment Video Spec,Video Content Started,The video content starts playing,content_pod_id,String,Pod Id of the video playing/about to be played
+Segment Video Spec,Video Content Started,The video content starts playing,title,String,User's salutation
+Segment Video Spec,Video Content Started,The video content starts playing,description,String,Short description of the video content.
+Segment Video Spec,Video Content Started,The video content starts playing,keywords,Array,Arbitrary keywords/tags that describe/categorize the content.
+Segment Video Spec,Video Content Started,The video content starts playing,season,String,The season number if applicable.
+Segment Video Spec,Video Content Started,The video content starts playing,episode,String,The episode number if applicable.
+Segment Video Spec,Video Content Started,The video content starts playing,genre,String,"The genre of the content, ie. ‘comedy’, ‘action’."
+Segment Video Spec,Video Content Started,The video content starts playing,program,String,"The name of the program, show, etc. of the content if applicable."
+Segment Video Spec,Video Content Started,The video content starts playing,publisher,String,"The content creator, author, producer, or publisher."
+Segment Video Spec,Video Content Started,The video content starts playing,position,Integer,Position of product in the list
+Segment Video Spec,Video Content Started,The video content starts playing,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Content Started,The video content starts playing,channel,String,The channel in which the video content is playing
+Segment Video Spec,Video Content Started,The video content starts playing,full_episode,Boolean,true if content is a full episode and false otherwise.
+Segment Video Spec,Video Content Started,The video content starts playing,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Content Started,The video content starts playing,airdate,String,ISO 8601 Date String for the original air date or published date.
+Segment Video Spec,Video Content Started,The video content starts playing,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Content Started,The video content starts playing,framerate,Integer,The average fps.
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,content_asset_id,String,Asset Id of the video playing/about to be played 
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,content_pod_id,String,Pod Id of the video playing/about to be played
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,title,String,User's salutation
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,description,String,Short description of the video content.
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,keywords,Array,Arbitrary keywords/tags that describe/categorize the content.
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,season,String,The season number if applicable.
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,episode,String,The episode number if applicable.
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,genre,String,"The genre of the content, ie. ‘comedy’, ‘action’."
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,program,String,"The name of the program, show, etc. of the content if applicable."
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,publisher,String,"The content creator, author, producer, or publisher."
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,position,Integer,Position of product in the list
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,channel,String,The channel in which the video content is playing
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,full_episode,Boolean,true if content is a full episode and false otherwise.
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,airdate,String,ISO 8601 Date String for the original air date or published date.
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Content Playing,Heartbeat every N (we recommend 10) seconds to track how far into the content the user is currently viewing.,framerate,Integer,The average fps.
+Segment Video Spec,Video Content Completed,The video content finishes playing,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Content Completed,The video content finishes playing,content_asset_id,String,Asset Id of the video playing/about to be played 
+Segment Video Spec,Video Content Completed,The video content finishes playing,content_pod_id,String,Pod Id of the video playing/about to be played
+Segment Video Spec,Video Content Completed,The video content finishes playing,title,String,User's salutation
+Segment Video Spec,Video Content Completed,The video content finishes playing,description,String,Short description of the video content.
+Segment Video Spec,Video Content Completed,The video content finishes playing,keywords,Array,Arbitrary keywords/tags that describe/categorize the content.
+Segment Video Spec,Video Content Completed,The video content finishes playing,season,String,The season number if applicable.
+Segment Video Spec,Video Content Completed,The video content finishes playing,episode,String,The episode number if applicable.
+Segment Video Spec,Video Content Completed,The video content finishes playing,genre,String,"The genre of the content, ie. ‘comedy’, ‘action’."
+Segment Video Spec,Video Content Completed,The video content finishes playing,program,String,"The name of the program, show, etc. of the content if applicable."
+Segment Video Spec,Video Content Completed,The video content finishes playing,publisher,String,"The content creator, author, producer, or publisher."
+Segment Video Spec,Video Content Completed,The video content finishes playing,position,Integer,Position of product in the list
+Segment Video Spec,Video Content Completed,The video content finishes playing,total_length,Integer,Total duration of the playback in seconds
+Segment Video Spec,Video Content Completed,The video content finishes playing,channel,String,The channel in which the video content is playing
+Segment Video Spec,Video Content Completed,The video content finishes playing,full_episode,Boolean,true if content is a full episode and false otherwise.
+Segment Video Spec,Video Content Completed,The video content finishes playing,livestream,Boolean,True f the playback will be a livetream
+Segment Video Spec,Video Content Completed,The video content finishes playing,airdate,String,ISO 8601 Date String for the original air date or published date.
+Segment Video Spec,Video Content Completed,The video content finishes playing,bitrate,Integer,The current kbps.
+Segment Video Spec,Video Content Completed,The video content finishes playing,framerate,Integer,The average fps.
+Segment Video Spec,Video Ad Started,The ad content starts playing,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Ad Started,The ad content starts playing,ad_asset_id,String,The unique ID of the ad asset.
+Segment Video Spec,Video Ad Started,The ad content starts playing,ad_pod_id,String,The unique ID of the ad pod.
+Segment Video Spec,Video Ad Started,The ad content starts playing,ad_type,String,The ad type
+Segment Video Spec,Video Ad Started,The ad content starts playing,ad_title,String,The title of the video ad.
+Segment Video Spec,Video Ad Started,The ad content starts playing,ad_position,Integer,The current index position in seconds of the playhead with respect to the length of the ad.
+Segment Video Spec,Video Ad Started,The ad content starts playing,ad_pod_position,Integer,Position of the ad asset relative to other assets in the same pod.
+Segment Video Spec,Video Ad Started,The ad content starts playing,total_ad_length,Integer,The total duration of the current ad asset in seconds.
+Segment Video Spec,Video Ad Started,The ad content starts playing,ad_publisher,String,"The ad creator, author, producer, or publisher."
+Segment Video Spec,Video Ad Started,The ad content starts playing,ad_load_type,String,Linear if ads are same for all users.
+Segment Video Spec,Video Ad Playing,Heartbeat event fired every N seconds that the ad plays,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Ad Playing,Heartbeat event fired every N seconds that the ad plays,ad_asset_id,String,The unique ID of the ad asset.
+Segment Video Spec,Video Ad Playing,Heartbeat event fired every N seconds that the ad plays,ad_pod_id,String,The unique ID of the ad pod.
+Segment Video Spec,Video Ad Playing,Heartbeat event fired every N seconds that the ad plays,ad_type,String,The ad type
+Segment Video Spec,Video Ad Playing,Heartbeat event fired every N seconds that the ad plays,ad_title,String,The title of the video ad.
+Segment Video Spec,Video Ad Playing,Heartbeat event fired every N seconds that the ad plays,ad_position,Integer,The current index position in seconds of the playhead with respect to the length of the ad.
+Segment Video Spec,Video Ad Playing,Heartbeat event fired every N seconds that the ad plays,ad_pod_position,Integer,Position of the ad asset relative to other assets in the same pod.
+Segment Video Spec,Video Ad Playing,Heartbeat event fired every N seconds that the ad plays,total_ad_length,Integer,The total duration of the current ad asset in seconds.
+Segment Video Spec,Video Ad Playing,Heartbeat event fired every N seconds that the ad plays,ad_publisher,String,"The ad creator, author, producer, or publisher."
+Segment Video Spec,Video Ad Playing,Heartbeat event fired every N seconds that the ad plays,ad_load_type,String,Linear if ads are same for all users.
+Segment Video Spec,Video Ad Completed,The ad content completes playing,session_id,String,The unique ID of the overall session. 
+Segment Video Spec,Video Ad Completed,The ad content completes playing,ad_asset_id,String,The unique ID of the ad asset.
+Segment Video Spec,Video Ad Completed,The ad content completes playing,ad_pod_id,String,The unique ID of the ad pod.
+Segment Video Spec,Video Ad Completed,The ad content completes playing,ad_type,String,The ad type
+Segment Video Spec,Video Ad Completed,The ad content completes playing,ad_title,String,The title of the video ad.
+Segment Video Spec,Video Ad Completed,The ad content completes playing,ad_position,Integer,The current index position in seconds of the playhead with respect to the length of the ad.
+Segment Video Spec,Video Ad Completed,The ad content completes playing,ad_pod_position,Integer,Position of the ad asset relative to other assets in the same pod.
+Segment Video Spec,Video Ad Completed,The ad content completes playing,total_ad_length,Integer,The total duration of the current ad asset in seconds.
+Segment Video Spec,Video Ad Completed,The ad content completes playing,ad_publisher,String,"The ad creator, author, producer, or publisher."
+Segment Video Spec,Video Ad Completed,The ad content completes playing,ad_load_type,String,Linear if ads are same for all users.
+Segment Mobile Spec,Application Installed,User first opens your mobile app. Collected automatically!,version,String,Version installed
+Segment Mobile Spec,Application Installed,User first opens your mobile app. Collected automatically!,build,Number,Build number of the installed app
+Segment Mobile Spec,Application Opened,User launches or foregrounds your mobile app after the first open Collected Automatically!,from_background,Boolean,If application transitioned from “Background” to “Inactive” state prior to foregrounding (as opposed to from “Not Running” state). Automatically collected on iOS only.
+Segment Mobile Spec,Application Opened,User launches or foregrounds your mobile app after the first open Collected Automatically!,url,String,The value of UIApplicationLaunchOptionsURLKey from launchOptions (auto-collected on iOS only)
+Segment Mobile Spec,Application Opened,User launches or foregrounds your mobile app after the first open Collected Automatically!,referring_application,,
+Segment Mobile Spec,Application Opened,User launches or foregrounds your mobile app after the first open Collected Automatically!,version,String,Version installed
+Segment Mobile Spec,Application Opened,User launches or foregrounds your mobile app after the first open Collected Automatically!,build,Number,Build number of the installed app
+Segment Mobile Spec,Application Updated,User updates the app Collected automatically!,previous_version,String,Previously recorded version
+Segment Mobile Spec,Application Updated,User updates the app Collected automatically!,previous_build,Number,Previously recorded build
+Segment Mobile Spec,Application Updated,User updates the app Collected automatically!,version,String,Version installed
+Segment Mobile Spec,Application Updated,User updates the app Collected automatically!,build,Number,Build number of the installed app
+Segment Mobile Spec,Application Backgrounded,User backgrounds the application upon applicationDidEnterBackground,,,
+Segment Mobile Spec,Application Crashed,The application crashes.,,,
+Segment Mobile Spec,Application Uninstalled,User uninstalls the application Often collected automatically!,,,
+Segment Mobile Spec,Push Notification Received,Push notification received by your app Collected automatically by iOS!,push_campaign[source],String,Push provider
+Segment Mobile Spec,Push Notification Received,Push notification received by your app Collected automatically by iOS!,push_campaign[name],String,Campaign name
+Segment Mobile Spec,Push Notification Received,Push notification received by your app Collected automatically by iOS!,push_campaign[medium],String,What type of link was pushed
+Segment Mobile Spec,Push Notification Received,Push notification received by your app Collected automatically by iOS!,push_campaign[content],String,Content of the notification
+Segment Mobile Spec,Push Notification Tapped,User taps push notification associated with your app Collected automatically by iOS!,action,String,Custom string if notification is “actionable“ Default: “Open”
+Segment Mobile Spec,Push Notification Tapped,User taps push notification associated with your app Collected automatically by iOS!,push_campaign[source],String,Push provider
+Segment Mobile Spec,Push Notification Tapped,User taps push notification associated with your app Collected automatically by iOS!,push_campaign[name],String,Campaign name
+Segment Mobile Spec,Push Notification Tapped,User taps push notification associated with your app Collected automatically by iOS!,push_campaign[medium],String,What type of link was pushed
+Segment Mobile Spec,Push Notification Tapped,User taps push notification associated with your app Collected automatically by iOS!,push_campaign[content],String,Content of the notification
+Segment Mobile Spec,Push Notification Bounced,Push notification from a provider bounces,action,String,Custom string if notification is “actionable“ Default: “Open”
+Segment Mobile Spec,Push Notification Bounced,Push notification from a provider bounces,push_campaign[source],String,Push provider
+Segment Mobile Spec,Push Notification Bounced,Push notification from a provider bounces,push_campaign[name],String,Campaign name
+Segment Mobile Spec,Push Notification Bounced,Push notification from a provider bounces,push_campaign[medium],String,What type of link was pushed
+Segment Mobile Spec,Push Notification Bounced,Push notification from a provider bounces,push_campaign[content],String,Content of the notification
+Segment Mobile Spec,Install Attributed,Segment or an integrated partner can discern the source of an install,provider,String,Attribution provider
+Segment Mobile Spec,Install Attributed,Segment or an integrated partner can discern the source of an install,campaign[source],String,Campaign source -- attributed ad network
+Segment Mobile Spec,Install Attributed,Segment or an integrated partner can discern the source of an install,campaign[name],String,Name of the attributed campaign
+Segment Mobile Spec,Install Attributed,Segment or an integrated partner can discern the source of an install,campaign[medium],String,What type of link was used
+Segment Mobile Spec,Install Attributed,Segment or an integrated partner can discern the source of an install,campaign[content],String,Content of the campaign
+Segment Mobile Spec,Install Attributed,Segment or an integrated partner can discern the source of an install,campaign[ad_creative],String,Ad creative name
+Segment Mobile Spec,Install Attributed,Segment or an integrated partner can discern the source of an install,campaign[ad_group],String,Ad group name
+Segment Mobile Spec,Deep Link Clicked,User clicks on a deep link associated with your app,deep_link_provider,String,The deep link provider
+Segment Mobile Spec,Deep Link Clicked,User clicks on a deep link associated with your app,deep_link_url,String,The deep link url clicked
+Segment Mobile Spec,Deep Link Opened,User opens your app via a deep link,deep_link_provider,String,The deep link provider
+Segment Mobile Spec,Deep Link Opened,User opens your app via a deep link,deep_link_url,String,The deep link url clicked
