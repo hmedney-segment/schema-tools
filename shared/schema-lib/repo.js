@@ -2,6 +2,8 @@ import path from 'path';
 import slugify from '@sindresorhus/slugify';
 import fsx from 'fs-extra';
 import yaml from 'js-yaml';
+import matches from 'lodash.matches';
+import uniqBy from 'lodash.uniqby';
 import {assertNotNull, assertString} from '../util.js';
 
 function titleToSlug(title) {
@@ -11,10 +13,18 @@ function titleToSlug(title) {
 export class SchemaRepo {
   repoPath;
   eventsPath;
+  trackingPlansPath;
 
   constructor(repoPath) {
     this.repoPath = repoPath;
     this.eventsPath = path.resolve(repoPath, 'events');
+    this.trackingPlansPath = path.resolve(repoPath, 'tracking-plans');
+  }
+
+  getTrackingPlans() {
+    const fileNames = fsx.readdirSync(this.trackingPlansPath);
+    const filePaths = fileNames.map((fileName) => path.join(this.trackingPlansPath, fileName));
+    return filePaths.map((filePath) => this.loadTrackingPlanFile(filePath));
   }
 
   getEvents() {
@@ -27,19 +37,28 @@ export class SchemaRepo {
     fsx.emptyDirSync(this.eventsPath);
   }
 
-  buildFilePath(title) {
+  buildEventFilePath(title) {
     const fileName = `${titleToSlug(title)}.yaml`;
     return path.join(this.eventsPath, fileName);
   }
 
-  loadEventFile(filePath) {
+  loadFile(filePath) {
     if (!fsx.existsSync(filePath)) {
       return null;
     }
-
-    // get event content
     const fileContent = fsx.readFileSync(filePath, 'utf-8');
-    const event = yaml.load(fileContent);
+    return yaml.load(fileContent, {
+      onWarning: (e) => {
+        throw e;
+      }
+    });
+  }
+
+  loadEventFile(filePath) {
+    const event = this.loadFile(filePath);
+    if (event == null) {
+      return null;
+    }
 
     // add computed props
     event._slug = titleToSlug(event.title);
@@ -53,6 +72,24 @@ export class SchemaRepo {
     }
 
     return event;
+  }
+
+  loadTrackingPlanFile(filePath) {
+    const trackingPlan = this.loadFile(filePath);
+    if (trackingPlan == null) {
+      return null;
+    }
+
+    // add all events that meet selector
+    const allEvents = this.getEvents();
+    const selector = trackingPlan.selector || [];
+    const trackingPlanEvents = selector.reduce((allMatchedEvents, match) => {
+      const matchedEvents = allEvents.filter(matches(match));
+      return [...allMatchedEvents, ...matchedEvents];
+    }, []);
+    trackingPlan.events = uniqBy(trackingPlanEvents, '_slug');
+
+    return trackingPlan;
   }
 
   saveEventFile(filePath, event) {
@@ -75,7 +112,7 @@ export class SchemaRepo {
     assertString(event.title, 'event.title');
 
     // start with existing event or empty object
-    const filePath = this.buildFilePath(event.title);
+    const filePath = this.buildEventFilePath(event.title);
     const existingEvent = this.loadEventFile(filePath);
     let eventToSave = existingEvent || {};
 
@@ -85,4 +122,9 @@ export class SchemaRepo {
     // save
     this.saveEventFile(filePath, eventToSave);
   }
+}
+
+export function findEvents(events, match) {
+  const matcher = matches(match);
+  return events.filter(matcher);
 }

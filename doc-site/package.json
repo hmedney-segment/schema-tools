@@ -1,5 +1,11 @@
 {
+  "name": "segment-schema-tools-doc-site",
+  "version": "1.0.0",
+  "description": "Schema doc static site builder",
+  "repository": "git@github.com:hmedney-segment/schema-tools.git",
   "private": true,
+  "author": "Hunter Medney <hunter_medney@us.ibm.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "nodemon --watch next.config.js --exec 'next dev'",
     "lint": "next lint",

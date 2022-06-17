@@ -6,6 +6,7 @@ services:
     ports:
       - 3000:3000
     volumes:
+      - ./shared:/usr/app/shared
       - ./doc-site/lib:/usr/app/doc-site/lib
       - ./doc-site/components:/usr/app/doc-site/components
       - ./doc-site/pages:/usr/app/doc-site/pages
