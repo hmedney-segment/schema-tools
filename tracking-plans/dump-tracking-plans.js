@@ -16,7 +16,7 @@ function main() {
       console.log(`tracking plan written to ${filePath}`);
     });
   } else {
-    console.log(trackingPlans);
+    process.stdout.write(JSON.stringify(trackingPlans, null, 2));
   }
 }
 

@@ -1,6 +1,12 @@
 import {SchemaRepo} from '../shared/schema-lib/repo.js';
 
-function eventToTrackingPlanRule(eventDefinition) {
+function eventDefinitionToTrackingPlanEvent(eventDefinition) {
+  const eventProperties = Object.entries(eventDefinition.properties).reduce((map, entry) => {
+    const [name, prop] = entry;
+    prop.type = Array.isArray(prop.type) ? prop.type : [prop.type];
+    return {...map, [name]: prop};
+  }, {});
+
   return {
     name: eventDefinition.title,
     description: eventDefinition.description,
@@ -13,13 +19,13 @@ function eventToTrackingPlanRule(eventDefinition) {
       properties: {
         properties: {
           type: 'object',
-          properties: eventDefinition.properties,
+          properties: eventProperties,
           required: Object.entries(eventDefinition.properties)
             .filter((entry) => entry[1].required === true)
             .map((entry) => entry[0])
         }
       },
-      required: 'properties'
+      required: ['properties']
     }
   };
 }
@@ -28,7 +34,7 @@ function trackingPlanDefinitionToTrackingPlan(trackingPlanDefinition) {
   return {
     display_name: trackingPlanDefinition.title,
     rules: {
-      events: trackingPlanDefinition.events.map(eventToTrackingPlanRule)
+      events: trackingPlanDefinition.events.map(eventDefinitionToTrackingPlanEvent)
     },
     _definition: trackingPlanDefinition
   };

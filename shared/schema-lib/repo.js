@@ -85,11 +85,13 @@ export class SchemaRepo {
 
     // add all events that meet selector
     const allEvents = this.getEvents();
-    const selector = trackingPlan.selector || [];
-    const trackingPlanEvents = selector.reduce((allMatchedEvents, match) => {
-      const matchedEvents = allEvents.filter(matches(match));
+    const event_selectors = trackingPlan.event_selectors || [];
+    const trackingPlanEvents = event_selectors.reduce((allMatchedEvents, selector) => {
+      // get events that match this selector and concat to accumulator
+      const matchedEvents = allEvents.filter(matches(selector));
       return [...allMatchedEvents, ...matchedEvents];
     }, []);
+    // dedupe event matches in case multiple selectors match the same event
     trackingPlan.events = uniqBy(trackingPlanEvents, '_slug');
 
     return trackingPlan;
