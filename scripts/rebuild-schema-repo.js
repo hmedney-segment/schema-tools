@@ -1,7 +1,7 @@
 import {parse} from 'csv/sync';
 import {SchemaRepo} from '../shared/schema-lib/repo.js';
 import {SCHEMA_DIR} from '../shared/config.js';
-import {assertString, assertNotNull, readLocalFileSync} from '../shared/util.js';
+import {assertString, assertNotNull, readLocalFileSync, sortMap} from '../shared/util.js';
 
 /**
  * Convert csv rows to event array
@@ -20,8 +20,8 @@ function rowsToEvents(rows) {
         title: event_title,
         collection: collection,
         description: event_desc,
-        propertiesMap: {},
-        contextMap: {}
+        properties: {},
+        context: {}
       };
     }
     const currentEvent = eventMap[event_title];
@@ -33,8 +33,7 @@ function rowsToEvents(rows) {
     } else if (prop_name.startsWith('context.')) {
       // row refers to a context prop - add to context map
       const contextPropName = prop_name.slice(8);
-      currentEvent.contextMap[contextPropName] = {
-        name: contextPropName,
+      currentEvent.context[contextPropName] = {
         type: prop_type.toLowerCase(),
         description: prop_desc
       };
@@ -42,7 +41,7 @@ function rowsToEvents(rows) {
       // row refers to a prop of an object in an array
       // assumes the parent array prop row has already been processed
       const [parentPropName, childPropName] = prop_name.split('.$.');
-      const prop = currentEvent.propertiesMap[parentPropName];
+      const prop = currentEvent.properties[parentPropName];
       assertNotNull(prop, `prop not found in map; event and row=${JSON.stringify({currentEvent, row})}`);
 
       // create items.properties map which has the schema for the array elements
@@ -51,14 +50,12 @@ function rowsToEvents(rows) {
 
       // add this row's prop to item.properties
       prop.items.properties[childPropName] = {
-        name: childPropName,
         type: prop_type.toLowerCase(),
         description: prop_desc
       };
     } else {
       // normal prop row
-      currentEvent.propertiesMap[prop_name] = {
-        name: prop_name,
+      currentEvent.properties[prop_name] = {
         type: prop_type.toLowerCase(),
         description: prop_desc
       };
@@ -66,20 +63,7 @@ function rowsToEvents(rows) {
   });
 
   // event map to event array
-  const events = Object.values(eventMap);
-
-  // prop and context maps to arrays (also remove map field)
-  events.forEach((event) => {
-    event.properties = Object.values(event.propertiesMap).sort();
-    event.context = Object.values(event.contextMap).sort();
-    delete event.propertiesMap;
-    delete event.contextMap;
-    if (event.context.length === 0) {
-      delete event.context;
-    }
-  });
-
-  return events;
+  return Object.values(eventMap);
 }
 
 function main() {

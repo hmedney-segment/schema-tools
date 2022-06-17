@@ -4,7 +4,7 @@ import fsx from 'fs-extra';
 import yaml from 'js-yaml';
 import matches from 'lodash.matches';
 import uniqBy from 'lodash.uniqby';
-import {assertNotNull, assertString} from '../util.js';
+import {assertNotNull, assertString, sortMap} from '../util.js';
 
 function titleToSlug(title) {
   return slugify(title);
@@ -93,14 +93,21 @@ export class SchemaRepo {
   }
 
   saveEventFile(filePath, event) {
-    const sortedProperties = event.properties.sort((p1, p2) => p1.name.localeCompare(p2.name));
+    const sortedProperties = sortMap(event.properties || {});
+    const sortedContext = sortMap(event.context || {});
     const normalizedEvent = {
       title: event.title,
       description: event.description,
       collection: event.collection,
       properties: sortedProperties,
+      context: sortedContext,
       ...event
     };
+
+    // delete context field if not populated
+    if (Object.keys(normalizedEvent.context).length === 0) {
+      delete normalizedEvent.context;
+    }
 
     fsx.ensureDir(this.eventsPath);
     const fileContent = yaml.dump(normalizedEvent);
