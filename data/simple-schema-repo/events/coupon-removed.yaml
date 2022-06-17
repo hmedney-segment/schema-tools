@@ -10,6 +10,7 @@ properties:
     description: ID of the coupon
   - name: coupon_name
     type: string
+    required: true
     description: Name of the coupon
   - name: discount
     type: number
