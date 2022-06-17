@@ -17,11 +17,12 @@ export function getStaticProps({params}) {
   return {props: {event}};
 }
 
-function PropTable({title, props, showHeader = true, className, size = 'lg'}) {
-  function getSortKey(prop) {
-    return `${prop.required === true ? '0' : '1'}${prop.name}`;
-  }
-  const sortedProps = props.sort((p1, p2) => getSortKey(p1).localeCompare(getSortKey(p2)));
+function PropTable({title, properties, showHeader = true, className, size = 'lg'}) {
+  // convert prop map to array and sort with required props first
+  const getSortKey = (prop) => `${prop.required === true ? '0' : '1'}${prop.name}`;
+  const sortedPropList = Object.entries(properties)
+    .map(([key, prop]) => ({name: key, ...prop}))
+    .sort((p1, p2) => getSortKey(p1).localeCompare(getSortKey(p2)));
 
   return (
     <div className={className}>
@@ -38,7 +39,7 @@ function PropTable({title, props, showHeader = true, className, size = 'lg'}) {
           </TableHead>
         )}
         <TableBody>
-          {sortedProps.map((prop) => (
+          {sortedPropList.map((prop) => (
             <>
               <TableRow key={prop.name}>
                 <TableCell>
@@ -56,7 +57,7 @@ function PropTable({title, props, showHeader = true, className, size = 'lg'}) {
                     <p>
                       Elements of <code>{prop.name}</code> array:
                     </p>
-                    <PropTable props={Object.values(prop.items.properties)} showHeader={false} size="sm" />
+                    <PropTable properties={prop.items.properties} showHeader={false} size="sm" />
                   </TableCell>
                 </TableRow>
               )}
@@ -65,7 +66,7 @@ function PropTable({title, props, showHeader = true, className, size = 'lg'}) {
               {prop.type === 'object' && prop.properties && (
                 <TableRow className="mt-0">
                   <TableCell colSpan="4" className="ps-4">
-                    <PropTable props={Object.values(prop.properties)} showHeader={false} size="sm" />
+                    <PropTable properties={prop.properties} showHeader={false} size="sm" />
                   </TableCell>
                 </TableRow>
               )}
@@ -82,8 +83,8 @@ export default function EventPage({event}) {
     <div>
       <h1>{event.title}</h1>
       <p>{event.description}</p>
-      <PropTable title="Event Properties" props={event.properties} className="mt-5" />
-      {event.context && <PropTable title="Context Properties" props={event.context} className="mt-5" />}
+      <PropTable title="Event Properties" properties={event.properties} className="mt-5" />
+      {event.context && <PropTable title="Context Properties" properties={event.context} className="mt-5" />}
     </div>
   );
 }
