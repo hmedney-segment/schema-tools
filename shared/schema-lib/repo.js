@@ -60,7 +60,7 @@ export class SchemaRepo {
       return null;
     }
 
-    // add computed props
+    // add slug from title
     event._slug = titleToSlug(event.title);
 
     // does slug === filename?
@@ -79,6 +79,9 @@ export class SchemaRepo {
     if (trackingPlan == null) {
       return null;
     }
+
+    // add slug from title
+    trackingPlan._slug = titleToSlug(trackingPlan.title);
 
     // add all events that meet selector
     const allEvents = this.getEvents();

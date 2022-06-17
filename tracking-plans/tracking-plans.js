@@ -1,5 +1,4 @@
 import {SchemaRepo} from '../shared/schema-lib/repo.js';
-import {SCHEMA_DIR} from '../shared/config.js';
 
 function eventToTrackingPlanRule(eventDefinition) {
   return {
@@ -30,15 +29,13 @@ function trackingPlanDefinitionToTrackingPlan(trackingPlanDefinition) {
     display_name: trackingPlanDefinition.title,
     rules: {
       events: trackingPlanDefinition.events.map(eventToTrackingPlanRule)
-    }
+    },
+    _definition: trackingPlanDefinition
   };
 }
 
-function main() {
-  const repo = new SchemaRepo(SCHEMA_DIR);
+export function generateTrackingPlans(repoDir) {
+  const repo = new SchemaRepo(repoDir);
   const trackingPlanDefinitions = repo.getTrackingPlans();
-  const trackingPlans = trackingPlanDefinitions.map(trackingPlanDefinitionToTrackingPlan);
-  console.log(trackingPlans);
+  return trackingPlanDefinitions.map(trackingPlanDefinitionToTrackingPlan);
 }
-
-main();

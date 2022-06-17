@@ -7,5 +7,7 @@
   "type": "module",
   "author": "Hunter Medney <hunter_medney@us.ibm.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "fs-extra": "^10.1.0"
+  }
 }
