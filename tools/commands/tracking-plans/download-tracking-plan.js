@@ -1,5 +1,5 @@
-import {getTrackingPlan} from '../shared/segment/api.js';
-import {assertString} from '../shared/util.js';
+import {getTrackingPlan} from '../../lib/segment/api.js';
+import {assertString} from '../../lib/util.js';
 
 async function main() {
   const id = process.argv[2];

@@ -1,7 +1,7 @@
-import {SCHEMA_CLONE_DIR} from '../shared/config.js';
-import {getTrackingPlanList, createTrackingPlan, updateTrackingPlan} from '../shared/segment/api.js';
-import {generateTrackingPlans} from './tracking-plans.js';
-import {assertString} from '../shared/util.js';
+import {SCHEMA_CLONE_DIR} from '../../lib/config.js';
+import {getTrackingPlanList, createTrackingPlan, updateTrackingPlan} from '../../lib/segment/api.js';
+import {generateTrackingPlans} from '../../lib/tracking-plans.js';
+import {assertString} from '../../lib/util.js';
 
 async function main() {
   const generatedTrackingPlans = generateTrackingPlans(SCHEMA_CLONE_DIR);

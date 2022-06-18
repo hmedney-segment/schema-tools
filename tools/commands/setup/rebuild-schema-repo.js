@@ -1,7 +1,7 @@
 import {parse} from 'csv/sync';
-import {SchemaRepo} from '../shared/schema-lib/repo.js';
-import {SCHEMA_CLONE_DIR} from '../shared/config.js';
-import {assertString, assertNotNull, readLocalFileSync, sortMap} from '../shared/util.js';
+import {SchemaRepo} from '../../lib/schema.js';
+import {SCHEMA_CLONE_DIR} from '../../lib/config.js';
+import {assertString, assertNotNull, readLocalFileSync} from '../../lib/util.js';
 
 /**
  * Convert csv rows to event array

@@ -5,24 +5,27 @@ services:
       context: .
     ports:
       - 3000:3000
-    volumes: &volumes
-      - ./shared:/usr/app/shared
-      - ./doc-site/lib:/usr/app/doc-site/lib
+    volumes:
+      &volumes # use local schema in simple-schema-repo or other schema clone on host specified by SCHEMA_CLONE_DIR
+      - ${HOST_SCHEMA_CLONE_DIR:-./data/simple-schema-repo}:/usr/app/_host_schema_clone
+
+      # mount source folders
+      - ./tools/commands:/usr/app/tools/commands
+      - ./tools/lib:/usr/app/tools/lib
+      - ./scripts:/usr/app/scripts
+
+      # explicitly mount doc site source files and dirs; generated folders like .next and node_modules will stay in container
       - ./doc-site/components:/usr/app/doc-site/components
+      - ./doc-site/lib:/usr/app/doc-site/lib
       - ./doc-site/pages:/usr/app/doc-site/pages
       - ./doc-site/public:/usr/app/doc-site/public
       - ./doc-site/styles:/usr/app/doc-site/styles
+      - ./doc-site/.eslintrc.json:/usr/app/doc-site/.eslintrc.json
+      - ./doc-site/.prettierrc:/usr/app/doc-site/.prettierrc
       - ./doc-site/next.config.js:/usr/app/doc-site/next.config.js
-      - ${SCHEMA_CLONE_DIR:-./data/simple-schema-repo}:/usr/app/_schema_clone
+      - ./doc-site/package.json:/usr/app/doc-site/package.json
     command: yarn --silent --cwd doc-site dev
-
-  script:
-    build: *build
-    volumes:
-      - ./build-and-publish-docs.sh:/usr/app/build-and-publish-docs.sh
-      - ./build-and-deploy-tracking-plans.sh:/usr/app/build-and-deploy-tracking-plans.sh
-      - ./init.sh:/usr/app/init.sh
-    environment:
+    environment: &environment
       DEPLOY_GITHUB_USER: ${DEPLOY_GITHUB_USER}
       DEPLOY_GITHUB_TOKEN: ${DEPLOY_GITHUB_TOKEN}
       DEPLOY_GITHUB_URL: ${DEPLOY_GITHUB_URL}
@@ -30,3 +33,9 @@ services:
       DEPLOY_GITHUB_USER_EMAIL: ${DEPLOY_GITHUB_USER_EMAIL}
       SEGMENT_WORKSPACE: ${SEGMENT_WORKSPACE}
       SEGMENT_CONFIG_API_TOKEN: ${SEGMENT_CONFIG_API_TOKEN}
+      SCHEMA_CLONE_DIR: /usr/app/_host_schema_clone
+
+  scripts:
+    build: *build
+    volumes: *volumes
+    environment: *environment

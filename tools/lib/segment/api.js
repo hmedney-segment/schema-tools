@@ -1,5 +1,5 @@
 import {callSegmentAPI} from './lib.js';
-import {SEGMENT_WORKSPACE} from '../../shared/config.js';
+import {SEGMENT_WORKSPACE} from '../config.js';
 
 function combinePages(pages, fieldName) {
   return pages.reduce((accum, page) => [...accum, ...page[fieldName]], []);

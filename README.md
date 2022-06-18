@@ -10,16 +10,16 @@ docker push hmedney/segment-schema-tools:latest
 Local dev
 
 ```sh
-# build and publish site
-docker-compose run script ./build-and-publish-docs.sh
-
 # start doc container in dev mode
-# export SCHEMA_CLONE_DIR=<path_to_schema_clone>
 docker-compose up docs_dev
-```
 
-Get all event names in tracking plan
+# run doc build and publish script
+docker-compose run scripts scripts/build-and-publish-docs.sh
 
-```sh
-node tracking-plans/dump-tracking-plans.js | jq .[].rules.events[].name
+# dump all generated tracking plans to stdout
+docker-compose run scripts tools/commands/tracking-plans/dump-tracking-plans.js
+
+# process tracking plans through jq to get tracking plan names and events
+docker-compose run scripts tools/commands/tracking-plans/dump-tracking-plans.js | jq .[].display_name
+docker-compose run scripts tools/commands/tracking-plans/dump-tracking-plans.js | jq .[].rules.events[].name
 ```

@@ -1,4 +1,4 @@
-import {getSources, createSource} from '../shared/segment/api.js';
+import {getSources, createSource} from '../../lib//segment/api.js';
 
 async function main() {
   const existingSources = await getSources();

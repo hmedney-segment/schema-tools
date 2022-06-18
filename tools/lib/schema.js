@@ -4,7 +4,7 @@ import fsx from 'fs-extra';
 import yaml from 'js-yaml';
 import matches from 'lodash.matches';
 import uniqBy from 'lodash.uniqby';
-import {assertNotNull, assertString, sortMap} from '../util.js';
+import {assertNotNull, assertString, sortMap} from './util.js';
 
 function titleToSlug(title) {
   return slugify(title);

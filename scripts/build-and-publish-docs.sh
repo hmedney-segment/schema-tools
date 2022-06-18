@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./init.sh
+source /usr/app/scripts/init.sh
 
 # build NextJS static site and export to ./out
 echo "Building Next.js static doc site with base path $GH_PAGES_BASE_PATH"

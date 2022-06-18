@@ -1,5 +1,5 @@
 import getConfig from 'next/config.js';
-import {SchemaRepo} from '../../shared/schema-lib/repo.js';
+import {SchemaRepo} from '../../tools/lib/schema.js';
 
 const {serverRuntimeConfig} = getConfig();
 const {repoDir} = serverRuntimeConfig;

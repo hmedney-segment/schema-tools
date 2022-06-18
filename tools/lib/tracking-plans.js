@@ -1,9 +1,13 @@
-import {SchemaRepo} from '../shared/schema-lib/repo.js';
+import {SchemaRepo} from './schema.js';
 
 function eventDefinitionToTrackingPlanEvent(eventDefinition) {
+  // normalize event props
   const eventProperties = Object.entries(eventDefinition.properties).reduce((map, entry) => {
     const [name, prop] = entry;
+
+    // coerce array for type
     prop.type = Array.isArray(prop.type) ? prop.type : [prop.type];
+
     return {...map, [name]: prop};
   }, {});
 
@@ -21,8 +25,8 @@ function eventDefinitionToTrackingPlanEvent(eventDefinition) {
           type: 'object',
           properties: eventProperties,
           required: Object.entries(eventDefinition.properties)
-            .filter((entry) => entry[1].required === true)
-            .map((entry) => entry[0])
+            .filter(([name, prop]) => prop.required === true)
+            .map(([name, prop]) => name)
         }
       },
       required: ['properties']
