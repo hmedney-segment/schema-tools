@@ -16,6 +16,9 @@ docker-compose run scripts scripts/build-and-publish-docs.sh
 # run tracking plan deploy script
 docker-compose run scripts scripts/build-and-deploy-tracking-plans.sh
 
+# run PR impact report script
+docker-compose run scripts scripts/create-impact-report.sh
+
 # dump all generated tracking plans to stdout
 docker-compose run scripts tools/commands/tracking-plans/dump-tracking-plans.js
 

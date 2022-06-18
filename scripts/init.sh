@@ -37,4 +37,5 @@ echo "Using GitHub Pages base path: $GH_PAGES_BASE_PATH"
 
 # clone repo
 export SCHEMA_CLONE_DIR=/usr/app/_remote_schema_clone
-git clone --depth 1 "$GITHUB_REMOTE" $SCHEMA_CLONE_DIR
+# git clone --depth 1 "$GITHUB_REMOTE" $SCHEMA_CLONE_DIR
+git clone "$GITHUB_REMOTE" $SCHEMA_CLONE_DIR

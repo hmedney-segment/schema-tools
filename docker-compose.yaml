@@ -12,6 +12,8 @@ services:
       # mount source folders
       - ./tools/commands:/usr/app/tools/commands
       - ./tools/lib:/usr/app/tools/lib
+      - ./tools/package.json:/usr/app/tools/package.json
+      - ./tools/yarn.lock:/usr/app/tools/yarn.lock
       - ./scripts:/usr/app/scripts
 
       # explicitly mount doc site source files and dirs; generated folders like .next and node_modules will stay in container
@@ -34,6 +36,8 @@ services:
       SEGMENT_WORKSPACE: ${SEGMENT_WORKSPACE}
       SEGMENT_CONFIG_API_TOKEN: ${SEGMENT_CONFIG_API_TOKEN}
       SCHEMA_CLONE_DIR: /usr/app/_host_schema_clone
+      GITHUB_PR_FROM_REF: change1
+      GITHUB_PR_TO_REF: main
 
   scripts:
     build: *build

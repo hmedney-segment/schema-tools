@@ -6,7 +6,7 @@ function eventDefinitionToTrackingPlanEvent(eventDefinition) {
     const [name, prop] = entry;
 
     // coerce array for type
-    prop.type = Array.isArray(prop.type) ? prop.type : [prop.type];
+    prop.type = Array.isArray(prop.type) ? prop.type.sort() : [prop.type];
 
     return {...map, [name]: prop};
   }, {});
@@ -34,7 +34,7 @@ function eventDefinitionToTrackingPlanEvent(eventDefinition) {
   };
 }
 
-function trackingPlanDefinitionToTrackingPlan(trackingPlanDefinition) {
+export function trackingPlanDefinitionToTrackingPlan(trackingPlanDefinition) {
   return {
     display_name: trackingPlanDefinition.title,
     rules: {
