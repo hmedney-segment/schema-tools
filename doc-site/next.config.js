@@ -8,7 +8,7 @@ if (!fsx.existsSync(repoDir)) {
 }
 
 module.exports = {
-  basePath: process.env.DOC_SITE_BASE_PATH,
+  basePath: process.env.GH_PAGES_BASE_PATH,
   serverRuntimeConfig: {
     repoDir
   }

@@ -1,10 +1,8 @@
 #!/bin/bash
-
 source ./init.sh
 
-export DOC_SITE_BASE_PATH=$GH_PAGES_BASE_PATH
-
 # build NextJS static site and export to ./out
+echo "Building Next.js static doc site with base path $GH_PAGES_BASE_PATH"
 cd /usr/app/doc-site
 yarn build
 yarn export

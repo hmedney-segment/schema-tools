@@ -1,5 +1,5 @@
 #!/bin/bash
-
 source ./init.sh
 
-echo "Deploy tracking plans..."
+# generate and deploy tracking plans
+node /usr/app/tracking-plans/deploy-tracking-plans.js

@@ -32,5 +32,7 @@ export GH_PAGES_BASE_PATH="/$REPO_NAME"
 # build github remote
 export GITHUB_REMOTE="https://$DEPLOY_GITHUB_USER:$DEPLOY_GITHUB_TOKEN@$HOST/$ORG/$REPO"
 
+
 # clone repo
-git clone --branch main --depth 1 "$GITHUB_REMOTE" /usr/app/_schema_repo
+export SCHEMA_DIR=/usr/app/_schema_repo
+git clone --branch main --depth 1 "$GITHUB_REMOTE" $SCHEMA_DIR
