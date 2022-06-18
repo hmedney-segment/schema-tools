@@ -1,13 +1,14 @@
 {
-  "name": "segment-schema-tools-shared",
+  "name": "segment-schema-tools",
   "version": "1.0.0",
-  "repository": "git@github.com:hmedney/segment-schema-tools.git",
+  "repository": "git@github.com:hmedney-segment/schema-tools.git",
   "type": "module",
   "author": "Hunter Medney <hunter_medney@us.ibm.com>",
   "license": "MIT",
   "dependencies": {
     "@sindresorhus/slugify": "^2.1.0",
     "axios": "^0.27.2",
+    "csv": "^6.1.0",
     "debug": "^4.3.4",
     "dotenv": "^16.0.1",
     "fs-extra": "^10.1.0",
