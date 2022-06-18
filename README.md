@@ -16,6 +16,9 @@ docker-compose up docs_dev
 # run doc build and publish script
 docker-compose run scripts scripts/build-and-publish-docs.sh
 
+# run tracking plan deploy script
+docker-compose run scripts scripts/build-and-deploy-tracking-plans.sh
+
 # dump all generated tracking plans to stdout
 docker-compose run scripts tools/commands/tracking-plans/dump-tracking-plans.js
 
