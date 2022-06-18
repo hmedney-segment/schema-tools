@@ -25,8 +25,8 @@ function eventDefinitionToTrackingPlanEvent(eventDefinition) {
           type: 'object',
           properties: eventProperties,
           required: Object.entries(eventDefinition.properties)
-            .filter(([name, prop]) => prop.required === true)
-            .map(([name, prop]) => name)
+            .filter(([_, prop]) => prop.required === true)
+            .map(([name, _]) => name)
         }
       },
       required: ['properties']
