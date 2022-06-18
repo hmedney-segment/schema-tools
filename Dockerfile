@@ -19,11 +19,12 @@ RUN yarn cache clean
 # copy remaining project files
 COPY shared ./shared
 COPY scripts ./scripts
-COPY scripts ./tracking-plans
+COPY tracking-plans ./tracking-plans
 COPY doc-site ./doc-site
-
 
 # do an initial build of docs site w/ no events to make subsequent builds faster
 RUN yarn --cwd doc-site build
 
+COPY build-and-deploy-tracking-plans.sh .
 COPY build-and-publish-docs.sh .
+COPY init.sh .
