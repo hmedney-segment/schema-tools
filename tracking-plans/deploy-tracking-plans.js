@@ -1,10 +1,10 @@
-import {SCHEMA_DIR} from '../shared/config.js';
+import {SCHEMA_CLONE_DIR} from '../shared/config.js';
 import {getTrackingPlanList, createTrackingPlan, updateTrackingPlan} from '../shared/segment/api.js';
 import {generateTrackingPlans} from './tracking-plans.js';
 import {assertString} from '../shared/util.js';
 
 async function main() {
-  const generatedTrackingPlans = generateTrackingPlans(SCHEMA_DIR);
+  const generatedTrackingPlans = generateTrackingPlans(SCHEMA_CLONE_DIR);
   const segmentTrackingPlanList = await getTrackingPlanList();
 
   for (const generatedTrackingPlan of generatedTrackingPlans) {

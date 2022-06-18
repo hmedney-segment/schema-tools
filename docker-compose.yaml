@@ -13,10 +13,10 @@ services:
       - ./doc-site/public:/usr/app/doc-site/public
       - ./doc-site/styles:/usr/app/doc-site/styles
       - ./doc-site/next.config.js:/usr/app/doc-site/next.config.js
-      - ${SCHEMA_DIR:-./data/simple-schema-repo}:/usr/app/_schema_repo
+      - ${SCHEMA_CLONE_DIR:-./data/simple-schema-repo}:/usr/app/_schema_clone
     command: yarn --silent --cwd doc-site dev
 
-  docs_build:
+  script:
     build: *build
     volumes:
       - ./build-and-publish-docs.sh:/usr/app/build-and-publish-docs.sh

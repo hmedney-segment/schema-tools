@@ -29,10 +29,9 @@ REPO_NAME=${REPO::-4}
 # use repo path as docs base path
 export GH_PAGES_BASE_PATH="/$REPO_NAME"
 
-# build github remote
+# build github remote url
 export GITHUB_REMOTE="https://$DEPLOY_GITHUB_USER:$DEPLOY_GITHUB_TOKEN@$HOST/$ORG/$REPO"
 
-
 # clone repo
-export SCHEMA_DIR=/usr/app/_schema_repo
-git clone --branch main --depth 1 "$GITHUB_REMOTE" $SCHEMA_DIR
+export SCHEMA_CLONE_DIR=/usr/app/_schema_clone
+git clone --branch main --depth 1 "$GITHUB_REMOTE" $SCHEMA_CLONE_DIR

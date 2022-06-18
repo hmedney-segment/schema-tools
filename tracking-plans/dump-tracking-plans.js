@@ -1,10 +1,10 @@
-import {SCHEMA_DIR} from '../shared/config.js';
+import {SCHEMA_CLONE_DIR} from '../shared/config.js';
 import {generateTrackingPlans} from './tracking-plans.js';
 import path from 'path';
 import fsx from 'fs-extra';
 
 function main() {
-  const trackingPlans = generateTrackingPlans(SCHEMA_DIR);
+  const trackingPlans = generateTrackingPlans(SCHEMA_CLONE_DIR);
 
   const dumpDir = process.argv[2];
   if (dumpDir) {

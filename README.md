@@ -11,10 +11,10 @@ Local dev
 
 ```sh
 # build and publish site
-docker-compose run docs_build ./build-and-publish-docs.sh
+docker-compose run script ./build-and-publish-docs.sh
 
 # start doc container in dev mode
-# export SCHEMA_DIR=<path_to_schema_repo>
+# export SCHEMA_CLONE_DIR=<path_to_schema_clone>
 docker-compose up docs_dev
 ```
 
