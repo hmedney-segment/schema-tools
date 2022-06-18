@@ -1,16 +1,13 @@
 # Tools for automating Segment tracking plan deployment and documentation
 
-Manual build
+While portions may work outside a container, all code was generally written to expect to be running in the container.
+
+## Local commands
+
+Below are some useful commands for local development of the schema tooling.
 
 ```sh
-docker build . -t hmedney/segment-schema-tools:latest
-docker push hmedney/segment-schema-tools:latest
-```
-
-Local dev
-
-```sh
-# start doc container in dev mode
+# start doc site NextJS app in dev mode
 docker-compose up docs_dev
 
 # run doc build and publish script
