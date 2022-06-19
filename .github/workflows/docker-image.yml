@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    name: Build and push schema-tools container image
     runs-on: ubuntu-latest
     permissions:
       packages: write
