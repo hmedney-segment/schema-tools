@@ -4,20 +4,23 @@ function eventDefinitionToTrackingPlanEvent(eventDefinition) {
   // build list of required props from required fields
   const requiredProps = Object.entries(eventDefinition.properties)
     .filter(([_, prop]) => prop.required === true)
-    .map(([name, _]) => name);
+    .map(([name, _]) => name)
+    .sort();
 
   // normalize event props
-  const eventProperties = Object.entries(eventDefinition.properties).reduce((map, entry) => {
-    const [name, prop] = entry;
+  const eventProperties = Object.entries(eventDefinition.properties)
+    .sort((e1, e2) => e1[0].localeCompare(e2[0]))
+    .reduce((map, entry) => {
+      const [name, prop] = entry;
 
-    // coerce array for type
-    prop.type = Array.isArray(prop.type) ? prop.type.sort() : [prop.type];
+      // coerce array for type
+      prop.type = Array.isArray(prop.type) ? prop.type.sort() : [prop.type];
 
-    // delete required field (not standard json schema)
-    delete prop.required;
+      // delete required field (not standard json schema)
+      delete prop.required;
 
-    return {...map, [name]: prop};
-  }, {});
+      return {...map, [name]: prop};
+    }, {});
 
   return {
     name: eventDefinition.title,
