@@ -35,7 +35,7 @@ async function main() {
   const currentTrackingPlanEventMap = getTrackingPlanEventMap();
 
   const changes = detailedDiff(currentTrackingPlanEventMap, newTrackingPlanEventMap);
-  console.log(JSON.stringify(changes, null, 2));
+  console.log(JSON.stringify(changes, (_, v) => (v === undefined ? '(deleted)' : v), 2));
 }
 
 main().catch((e) => {
