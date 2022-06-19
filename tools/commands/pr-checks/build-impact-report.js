@@ -12,7 +12,7 @@ function getTrackingPlanEventMap() {
   const trackingPlanDefinition = {title: 'All', events};
   const trackingPlan = trackingPlanDefinitionToTrackingPlan(trackingPlanDefinition);
   return trackingPlan.rules.events.reduce((map, event) => {
-    return {...map, [event.name]: event.rules.properties.properties.properties};
+    return {...map, [event.name]: event.rules.properties.properties};
   }, {});
 }
 
