@@ -36,7 +36,7 @@ services:
       SEGMENT_WORKSPACE: ${SEGMENT_WORKSPACE}
       SEGMENT_CONFIG_API_TOKEN: ${SEGMENT_CONFIG_API_TOKEN}
       SCHEMA_CLONE_DIR: /usr/app/_host_schema_clone
-      GITHUB_PR_FROM_REF: change1
+      GITHUB_PR_FROM_REF: ${GITHUB_PR_FROM_REF:-change1}
       GITHUB_PR_TO_REF: main
 
   scripts:
