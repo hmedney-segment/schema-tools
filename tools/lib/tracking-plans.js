@@ -1,12 +1,20 @@
 import {SchemaRepo} from './schema.js';
 
 function eventDefinitionToTrackingPlanEvent(eventDefinition) {
+  // build list of required props from required fields
+  const requiredProps = Object.entries(eventDefinition.properties)
+    .filter(([_, prop]) => prop.required === true)
+    .map(([name, _]) => name);
+
   // normalize event props
   const eventProperties = Object.entries(eventDefinition.properties).reduce((map, entry) => {
     const [name, prop] = entry;
 
     // coerce array for type
     prop.type = Array.isArray(prop.type) ? prop.type.sort() : [prop.type];
+
+    // delete required field (not standard json schema)
+    delete prop.required;
 
     return {...map, [name]: prop};
   }, {});
@@ -24,9 +32,7 @@ function eventDefinitionToTrackingPlanEvent(eventDefinition) {
         properties: {
           type: 'object',
           properties: eventProperties,
-          required: Object.entries(eventDefinition.properties)
-            .filter(([_, prop]) => prop.required === true)
-            .map(([name, _]) => name)
+          required: requiredProps
         }
       },
       required: ['properties']
