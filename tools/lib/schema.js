@@ -4,7 +4,7 @@ import fsx from 'fs-extra';
 import yaml from 'js-yaml';
 import matches from 'lodash.matches';
 import uniqBy from 'lodash.uniqby';
-import {assertNotNull, assertString, sortMap} from './util.js';
+import {assertNotNull, assertString, assertFileExists, sortMap} from './util.js';
 
 function titleToSlug(title) {
   return slugify(title);
@@ -42,10 +42,12 @@ export class SchemaRepo {
     return path.join(this.eventsPath, fileName);
   }
 
+  fileExists(filePath) {
+    return fsx.existsSync(filePath);
+  }
+
   loadFile(filePath) {
-    if (!fsx.existsSync(filePath)) {
-      return null;
-    }
+    assertFileExists(filePath);
     const fileContent = fsx.readFileSync(filePath, 'utf-8');
     return yaml.load(fileContent, {
       onWarning: (e) => {
@@ -56,9 +58,6 @@ export class SchemaRepo {
 
   loadEventFile(filePath) {
     const event = this.loadFile(filePath);
-    if (event == null) {
-      return null;
-    }
 
     // add slug from title
     event._slug = titleToSlug(event.title);
@@ -76,23 +75,24 @@ export class SchemaRepo {
 
   loadTrackingPlanFile(filePath) {
     const trackingPlan = this.loadFile(filePath);
-    if (trackingPlan == null) {
-      return null;
-    }
 
     // add slug from title
     trackingPlan._slug = titleToSlug(trackingPlan.title);
 
-    // add all events that meet selector
+    // add all events that match the selectors
     const allEvents = this.getEvents();
     const event_selectors = trackingPlan.event_selectors || [];
     const trackingPlanEvents = event_selectors.reduce((allMatchedEvents, selector) => {
-      // get events that match this selector and concat to accumulator
+      // get events that match this selector and add to accumulator
       const matchedEvents = allEvents.filter(matches(selector));
       return [...allMatchedEvents, ...matchedEvents];
     }, []);
-    // dedupe event matches in case multiple selectors match the same event
-    trackingPlan.events = uniqBy(trackingPlanEvents, '_slug');
+
+    // dedupe events in case multiple selectors match the same event
+    const uniqueTrackingPlanEvents = uniqBy(trackingPlanEvents, '_slug');
+
+    // attach events matching the selectors to the tracking plan itself
+    trackingPlan._events = uniqueTrackingPlanEvents;
 
     return trackingPlan;
   }
@@ -125,11 +125,10 @@ export class SchemaRepo {
 
     // start with existing event or empty object
     const filePath = this.buildEventFilePath(event.title);
-    const existingEvent = this.loadEventFile(filePath);
-    let eventToSave = existingEvent || {};
+    const existingEvent = this.fileExists(filePath) ? this.loadEventFile(filePath) : {};
 
     // merge updates
-    eventToSave = {...eventToSave, ...event};
+    const eventToSave = {...existingEvent, ...event};
 
     // save
     this.saveEventFile(filePath, eventToSave);
