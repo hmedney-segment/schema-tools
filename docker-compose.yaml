@@ -30,6 +30,7 @@ services:
       - ./doc-site/next.config.js:/usr/app/doc-site/next.config.js
       - ./doc-site/package.json:/usr/app/doc-site/package.json
 
+      # expose PWD on host to container
       - ${PWD}:/pwd
     command: yarn --silent --cwd doc-site dev
     environment: &environment
