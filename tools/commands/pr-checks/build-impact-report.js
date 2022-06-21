@@ -30,8 +30,8 @@ function createImpactReport(currentMap, newMap) {
     const propNamesRemoved = currentPropNames.filter((name) => !newPropNames.includes(name));
     const commonPropNames = newPropNames.filter((name) => currentPropNames.includes(name));
 
-    propNamesAdded.forEach((name) => changes.push({event: title, change: `Property "${name}" added`}));
-    propNamesRemoved.forEach((name) => changes.push({event: title, change: `Property "${name}" removed`}));
+    propNamesAdded.forEach((name) => changes.push({event: title, change: `Property \`${name}\` added`}));
+    propNamesRemoved.forEach((name) => changes.push({event: title, change: `Property \`${name}\` removed`}));
 
     // are any new props required?
     const newRequiredPropNames = propNamesAdded
@@ -41,14 +41,19 @@ function createImpactReport(currentMap, newMap) {
 
     // add warnings for new required props
     newRequiredPropNames.forEach((name) =>
-      warnings.push({event: title, warning: `Events now require new property "${name}"`})
+      warnings.push({event: title, warning: `Events now require new property \`${name}\``})
     );
 
     // add warning for removed props
     propNamesRemoved.forEach((name) =>
-      warnings.push({event: title, warning: `Property "${name}" was removed from the schema and will be omitted`})
+      warnings.push({event: title, warning: `Property \`${name}\` was removed from the schema and will be omitted`})
     );
   });
+
+  // sort lists
+  const sorter = (e1, e2) => e1.event.localeCompare(e2.event);
+  changes.sort(sorter);
+  warnings.sort(sorter);
 
   return {changes, warnings};
 }
@@ -87,11 +92,14 @@ async function main() {
   const {changes, warnings} = createImpactReport(currentTrackingPlanEventMap, newTrackingPlanEventMap);
 
   const report = `
-  ## :notebook: All changes
+  # Schema Impact Report
+
+  ### :notebook: All changes
 
   ${markdownTable([['Event', 'Change'], ...changes.map((change) => [change.event, change.change])])}
 
-  ## :warning: Warnings
+  
+  ### :warning: Warnings
 
   ${markdownTable([['Event', 'Warning'], ...warnings.map((warning) => [warning.event, warning.warning])])}
   `;
