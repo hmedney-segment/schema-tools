@@ -13,8 +13,14 @@ function eventDefinitionToTrackingPlanEvent(eventDefinition) {
     .reduce((map, entry) => {
       const [name, prop] = entry;
 
-      // coerce array for type
-      prop.type = Array.isArray(prop.type) ? prop.type.sort() : [prop.type];
+      // normalize type
+      if (!Array.isArray(prop.type)) {
+        if (prop.type == null || String(prop.type).trim().length === 0) {
+          delete prop.type;
+        } else {
+          prop.type = [prop.type.trim()];
+        }
+      }
 
       // delete required field (not standard json schema)
       delete prop.required;
