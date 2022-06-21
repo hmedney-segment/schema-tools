@@ -1,6 +1,7 @@
 import fsx from 'fs-extra';
 import simpleGit from 'simple-git';
 import {markdownTable} from 'markdown-table';
+import isEqual from 'lodash.isequal';
 import {GITHUB_PR_FROM_REF, GITHUB_PR_TO_REF, SCHEMA_CLONE_DIR} from '../../lib/config.js';
 import {assertString, assertTrue} from '../../lib/util.js';
 import {trackingPlanDefinitionToTrackingPlan} from '../../lib/tracking-plans.js';
@@ -14,10 +15,10 @@ function createImpactReport(currentMap, newMap) {
   const newEventTitles = Object.keys(newMap);
   const eventsAdded = newEventTitles.filter((title) => !currentEventTitles.includes(title));
   const eventsRemoved = currentEventTitles.filter((title) => !newEventTitles.includes(title));
-  eventsAdded.forEach((title) => changes.push({event: title, change: 'Event added'}));
-  eventsRemoved.forEach((title) => changes.push({event: title, change: 'Event removed'}));
+  eventsAdded.forEach((title) => changes.push({event: title, message: 'Event added'}));
+  eventsRemoved.forEach((title) => changes.push({event: title, message: 'Event removed'}));
   eventsRemoved.forEach((title) =>
-    warnings.push({event: title, warning: 'Event was removed from the schema and will be blocked'})
+    warnings.push({event: title, message: 'Event was removed from the schema and will be blocked'})
   );
 
   const commonEventTitles = newEventTitles.filter((title) => currentEventTitles.includes(title));
@@ -29,29 +30,57 @@ function createImpactReport(currentMap, newMap) {
     const propNamesAdded = newPropNames.filter((name) => !currentPropNames.includes(name));
     const propNamesRemoved = currentPropNames.filter((name) => !newPropNames.includes(name));
     const commonPropNames = newPropNames.filter((name) => currentPropNames.includes(name));
+    const commonPropPairs = commonPropNames.map((name) => {
+      const currentProp = {...currentEvent[name], name};
+      const newProp = {...newEvent[name], name};
+      return {currentProp, newProp};
+    });
 
-    propNamesAdded.forEach((name) => changes.push({event: title, change: `Property \`${name}\` added`}));
-    propNamesRemoved.forEach((name) => changes.push({event: title, change: `Property \`${name}\` removed`}));
+    // add changes for added and removed props
+    propNamesAdded.forEach((name) => changes.push({event: title, message: `Property \`${name}\` added`}));
+    propNamesRemoved.forEach((name) => changes.push({event: title, message: `Property \`${name}\` removed`}));
 
-    // are any new props required?
+    // add changes for changed props
+    ['type', 'description', 'required'].forEach((field) => {
+      commonPropPairs.forEach(({currentProp, newProp}) => {
+        const {name} = currentProp;
+        const currentValue = currentProp[field];
+        const newValue = newProp[field];
+        if (!isEqual(currentValue, newValue)) {
+          changes.push({
+            event: title,
+            message: `Property field \`${name}.${field}\` changed: current value \`${currentValue}\`, new value: \`${newValue}\``
+          });
+        }
+      });
+    });
+
+    // add warnings for new props that are required
     const newRequiredPropNames = propNamesAdded
       .map((name) => ({...newEvent[name], name}))
       .filter((prop) => prop.required === true)
       .map((prop) => prop.name);
 
-    // add warnings for new required props
+    // add warnings for new props that are required
     newRequiredPropNames.forEach((name) =>
-      warnings.push({event: title, warning: `Events now require new property \`${name}\``})
+      warnings.push({event: title, message: `Events will require new property \`${name}\``})
     );
 
     // add warning for removed props
     propNamesRemoved.forEach((name) =>
-      warnings.push({event: title, warning: `Property \`${name}\` was removed from the schema and will be omitted`})
+      warnings.push({event: title, message: `Property \`${name}\` was removed from the schema and will be omitted`})
     );
+
+    // add warning for newly required
+    commonPropPairs
+      .filter(({currentProp, newProp}) => newProp.required === true && currentProp.required !== true)
+      .map((pair) => pair.newProp.name)
+      .forEach((name) => warnings.push({event: title, message: `Property \`${name}\` will become required`}));
   });
 
   // sort lists
-  const sorter = (e1, e2) => e1.event.localeCompare(e2.event);
+  const sortKey = (m) => `${m.event}:${m.message}`;
+  const sorter = (m1, m2) => sortKey(m1).localeCompare(sortKey(m2));
   changes.sort(sorter);
   warnings.sort(sorter);
 
@@ -96,12 +125,12 @@ async function main() {
 
   ### :notebook: All changes
 
-  ${markdownTable([['Event', 'Change'], ...changes.map((change) => [change.event, change.change])])}
+  ${markdownTable([['Event', 'Change'], ...changes.map((change) => [change.event, change.message])])}
 
-  
+
   ### :warning: Warnings
 
-  ${markdownTable([['Event', 'Warning'], ...warnings.map((warning) => [warning.event, warning.warning])])}
+  ${markdownTable([['Event', 'Warning'], ...warnings.map((warning) => [warning.event, warning.message])])}
   `;
 
   console.log(report);
