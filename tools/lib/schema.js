@@ -82,17 +82,22 @@ export class SchemaRepo {
     // add all events that match the selectors
     const allEvents = this.getEvents();
     const event_selectors = trackingPlan.event_selectors || [];
-    const trackingPlanEvents = event_selectors.reduce((allMatchedEvents, selector) => {
-      // get events that match this selector and add to accumulator
-      const matchedEvents = allEvents.filter(matches(selector));
-      return [...allMatchedEvents, ...matchedEvents];
-    }, []);
+    if (event_selectors.length > 0) {
+      const trackingPlanEvents = event_selectors.reduce((allMatchedEvents, selector) => {
+        // get events that match this selector and add to accumulator
+        const matchedEvents = allEvents.filter(matches(selector));
+        return [...allMatchedEvents, ...matchedEvents];
+      }, []);
 
-    // dedupe events in case multiple selectors match the same event
-    const uniqueTrackingPlanEvents = uniqBy(trackingPlanEvents, '_slug');
+      // dedupe events in case multiple selectors match the same event
+      const uniqueTrackingPlanEvents = uniqBy(trackingPlanEvents, '_slug');
 
-    // attach events matching the selectors to the tracking plan itself
-    trackingPlan._events = uniqueTrackingPlanEvents;
+      // attach events matching the selectors to the tracking plan itself
+      trackingPlan._events = uniqueTrackingPlanEvents;
+    } else {
+      // no selectors defined - include all events
+      trackingPlan._events = allEvents;
+    }
 
     return trackingPlan;
   }
