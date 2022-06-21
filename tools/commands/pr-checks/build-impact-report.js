@@ -56,26 +56,31 @@ function createImpactReport(currentMap, newMap) {
     });
 
     // add warnings for new props that are required
-    const newRequiredPropNames = propNamesAdded
+    propNamesAdded
       .map((name) => ({...newEvent[name], name}))
       .filter((prop) => prop.required === true)
-      .map((prop) => prop.name);
-
-    // add warnings for new props that are required
-    newRequiredPropNames.forEach((name) =>
-      warnings.push({event: title, message: `Events will require new property \`${name}\``})
-    );
+      .forEach((prop) =>
+        warnings.push({
+          event: title,
+          message: `Events will be blocked unless they have new required property \`${prop.name}\``
+        })
+      );
 
     // add warning for removed props
     propNamesRemoved.forEach((name) =>
-      warnings.push({event: title, message: `Property \`${name}\` was removed from the schema and will be omitted`})
+      warnings.push({event: title, message: `Property \`${name}\` was removed and will be omitted going forward`})
     );
 
     // add warning for newly required
     commonPropPairs
       .filter(({currentProp, newProp}) => newProp.required === true && currentProp.required !== true)
       .map((pair) => pair.newProp.name)
-      .forEach((name) => warnings.push({event: title, message: `Property \`${name}\` will become required`}));
+      .forEach((name) =>
+        warnings.push({
+          event: title,
+          message: `Events will be blocked unless they have property \`${name}\`; this property isn't required presently`
+        })
+      );
   });
 
   // sort lists
@@ -130,7 +135,10 @@ async function main() {
 
   ### :warning: Warnings
 
-  ${markdownTable([['Event', 'Warning'], ...warnings.map((warning) => [warning.event, warning.message])])}
+  ${markdownTable([
+    ['Event', 'Warning'],
+    ...warnings.map((warning) => [warning.event, `:warning: ${warning.message}`])
+  ])}
   `;
 
   console.log(report);
