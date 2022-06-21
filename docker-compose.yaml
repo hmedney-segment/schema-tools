@@ -16,6 +16,9 @@ services:
       - ./tools/yarn.lock:/usr/app/tools/yarn.lock
       - ./scripts:/usr/app/scripts
 
+      # mount data
+      - ./data:/usr/app/data
+
       # explicitly mount doc site source files and dirs; generated folders like .next and node_modules will stay in container
       - ./doc-site/components:/usr/app/doc-site/components
       - ./doc-site/lib:/usr/app/doc-site/lib

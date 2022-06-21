@@ -1,6 +1,5 @@
 import {parse} from 'csv/sync';
 import {SchemaRepo} from '../../lib/schema.js';
-import {SCHEMA_CLONE_DIR} from '../../lib/config.js';
 import {assertString, assertNotNull, readLocalFileSync} from '../../lib/util.js';
 
 /**
@@ -67,18 +66,16 @@ function rowsToEvents(rows) {
 }
 
 function main() {
-  assertString(SCHEMA_CLONE_DIR, `Specify dir to create events in SCHEMA_CLONE_DIR env var`);
-
   const csvContent = readLocalFileSync('data/events.csv');
   const rows = parse(csvContent, {skip_empty_lines: true, columns: true, trim: true});
   const events = rowsToEvents(rows);
 
-  const repo = new SchemaRepo(SCHEMA_CLONE_DIR);
+  const repo = new SchemaRepo('/usr/app/_host_schema_clone');
   repo.deleteAllEvents();
   events.forEach((event) => repo.upsertEvent(event));
 
   const generatedEvents = repo.getEvents();
-  console.log(`successfully generated ${String(generatedEvents.length)} events in ${SCHEMA_CLONE_DIR}`);
+  console.log(`successfully generated ${String(generatedEvents.length)} events`);
 }
 
 main();

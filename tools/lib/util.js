@@ -47,7 +47,7 @@ export function assertFileExists(filePath) {
 }
 
 export function readLocalFileSync(localPath) {
-  return fs.readFileSync(path.join(__dirname, '..', localPath), 'utf-8');
+  return fs.readFileSync(path.join(__dirname, '..', '..', localPath), 'utf-8');
 }
 
 export function sortMap(map) {
