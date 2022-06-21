@@ -26,6 +26,8 @@ services:
       - ./doc-site/.prettierrc:/usr/app/doc-site/.prettierrc
       - ./doc-site/next.config.js:/usr/app/doc-site/next.config.js
       - ./doc-site/package.json:/usr/app/doc-site/package.json
+
+      - ${PWD}:/pwd
     command: yarn --silent --cwd doc-site dev
     environment: &environment
       DEPLOY_GITHUB_USER: ${DEPLOY_GITHUB_USER}
