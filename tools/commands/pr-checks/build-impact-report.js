@@ -71,7 +71,7 @@ function createImpactReport(currentMap, newMap) {
       warnings.push({event: title, message: `Property \`${name}\` was removed and will be omitted going forward`})
     );
 
-    // add warning for newly required
+    // add warning for props that are now required
     commonPropPairs
       .filter(({currentProp, newProp}) => newProp.required === true && currentProp.required !== true)
       .map((pair) => pair.newProp.name)
@@ -126,8 +126,6 @@ async function main() {
   const {changes, warnings} = createImpactReport(currentTrackingPlanEventMap, newTrackingPlanEventMap);
 
   const report = `
-  # Schema Impact Report
-
   ### :notebook: All changes
 
   ${markdownTable([['Event', 'Change'], ...changes.map((change) => [change.event, change.message])])}
