@@ -17,10 +17,10 @@ async function main() {
       assertString(id, 'tracking plan id');
       console.log(`found existing tracking plan with id ${id} - updating...`);
       const data = await updateTrackingPlan(id, generatedTrackingPlan);
-      console.log('tracking plan updated successfully', data);
+      console.log(`tracking plan "${data.display_name}" updated successfully`);
     } else {
       const data = await createTrackingPlan(generatedTrackingPlan);
-      console.log('tracking plan created successfully', data);
+      console.log(`tracking plan "${data.display_name}" created successfully`);
     }
   }
 }
