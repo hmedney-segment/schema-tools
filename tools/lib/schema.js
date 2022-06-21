@@ -97,24 +97,7 @@ export class SchemaRepo {
       trackingPlan._events = uniqueTrackingPlanEvents;
     } else {
       // no selectors defined - include all events
-      trackingPlan._events = allEvents.filter((e) => {
-        const props = Object.entries(e.properties);
-
-        // if (props.find((prop) => prop.type === '') != null) {
-        //   return false;
-        // }
-
-        // if (props.find((prop) => prop.type == null) != null) {
-        //   return false;
-        // }
-
-        // if (props.find((prop) => prop.type === 'object') != null) {
-        //   return false;
-        // }
-
-        return true;
-      });
-      // .find((p) => p.type !== '') != null});
+      trackingPlan._events = allEvents;
     }
 
     console.log(trackingPlan.title, trackingPlan._events.length);
