@@ -83,6 +83,7 @@ export class SchemaRepo {
     const allEvents = this.getEvents();
     const event_selectors = trackingPlan.event_selectors || [];
     if (event_selectors.length > 0) {
+      console.log();
       const trackingPlanEvents = event_selectors.reduce((allMatchedEvents, selector) => {
         // get events that match this selector and add to accumulator
         const matchedEvents = allEvents.filter(matches(selector));
@@ -96,9 +97,27 @@ export class SchemaRepo {
       trackingPlan._events = uniqueTrackingPlanEvents;
     } else {
       // no selectors defined - include all events
-      trackingPlan._events = allEvents;
+      trackingPlan._events = allEvents.filter((e) => {
+        const props = Object.entries(e.properties);
+
+        // if (props.find((prop) => prop.type === '') != null) {
+        //   return false;
+        // }
+
+        // if (props.find((prop) => prop.type == null) != null) {
+        //   return false;
+        // }
+
+        // if (props.find((prop) => prop.type === 'object') != null) {
+        //   return false;
+        // }
+
+        return true;
+      });
+      // .find((p) => p.type !== '') != null});
     }
 
+    console.log(trackingPlan.title, trackingPlan._events.length);
     return trackingPlan;
   }
 
