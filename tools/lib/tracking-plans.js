@@ -47,7 +47,7 @@ export function trackingPlanDefinitionToTrackingPlan(trackingPlanDefinition) {
   return {
     display_name: trackingPlanDefinition.title,
     rules: {
-      events: trackingPlanDefinition.events.map(eventDefinitionToTrackingPlanEvent)
+      events: trackingPlanDefinition._events.map(eventDefinitionToTrackingPlanEvent)
     },
     _definition: trackingPlanDefinition
   };
