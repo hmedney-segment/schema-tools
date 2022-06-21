@@ -1,5 +1,6 @@
 import {getEvents} from '../../lib/schema';
-import {Tag, Table, TableHead, TableHeader, TableBody, TableRow, TableCell} from '@carbon/react';
+import {Tag, Table, TableHead, TableHeader, TableBody, TableRow, TableCell, Grid, Column, CodeSnippet} from '@carbon/react';
+import React from 'react';
 
 export function getStaticPaths() {
   const events = getEvents();
@@ -40,8 +41,8 @@ function PropTable({title, properties, showHeader = true, className, size = 'lg'
         )}
         <TableBody>
           {sortedPropList.map((prop) => (
-            <>
-              <TableRow key={prop.name}>
+            <React.Fragment key={prop.name}>
+              <TableRow>
                 <TableCell>
                   <strong>{prop.name}</strong>
                 </TableCell>
@@ -70,7 +71,7 @@ function PropTable({title, properties, showHeader = true, className, size = 'lg'
                   </TableCell>
                 </TableRow>
               )}
-            </>
+            </React.Fragment>
           ))}
         </TableBody>
       </Table>
@@ -83,8 +84,22 @@ export default function EventPage({event}) {
     <div>
       <h1>{event.title}</h1>
       <p>{event.description}</p>
-      <PropTable title="Event Properties" properties={event.properties} className="mt-5" />
-      {event.context && <PropTable title="Context Properties" properties={event.context} className="mt-5" />}
+      <div className="d-flex justify-content-start mt-5">
+        <div className="flex-grow-1">
+          <PropTable title="Event Properties" properties={event.properties} />
+          {event.context && <PropTable title="Context Properties" properties={event.context} className="mt-5" />}
+        </div>
+        <div className="flex-grow-1">
+          {event.example && (
+            <div>
+              <h4>Example</h4>
+              <CodeSnippet type="multi" className="w-50" minCollapsedNumberOfRows={20}>
+                {event.example}
+              </CodeSnippet>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
