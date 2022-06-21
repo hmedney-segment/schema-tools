@@ -1,5 +1,6 @@
 import path from 'path';
 import fs from 'fs';
+import fsx from 'fs-extra';
 import {fileURLToPath} from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -39,6 +40,10 @@ export function assertOneOf(value, allowedValues, name) {
     allowedValues.includes(value),
     `${name}: "${value}" is invalid; valid values are ${JSON.stringify(allowedValues)}`
   );
+}
+
+export function assertFileExists(filePath) {
+  assertTrue(fsx.existsSync(filePath), `file ${filePath} does not exist`);
 }
 
 export function readLocalFileSync(localPath) {
